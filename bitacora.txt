@@ -1,1 +1,16 @@
-http://127.0.0.1:5500/rueda%20libre/index.html
+http://127.0.0.1:3000/Rueda-Libre/index.html
+protocolo: http
+host: 127.0.0.1
+Puerto: 3000
+ruta:Rueda-Libre/index.html
+metodo: GET
+Status: 200
+
+Ruta no existente: 
+Status: 404, File not found
+The file "/home/cohorte8/ruedalibre_clau/Rueda-Libre/promociones.html" cannot be found. It may have been moved, edited, or deleted.
+
+Roles
+css: guardar la informacion de los cleintes y las bicicletas
+html: el lugar donde mis clientes pueden visualizar las bicicletas, su informacion y alquilarlas
+Javascript: lo que hara que mi sitio web funcione
