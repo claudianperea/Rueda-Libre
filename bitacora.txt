@@ -11,6 +11,26 @@ Status: 404, File not found
 The file "/home/cohorte8/ruedalibre_clau/Rueda-Libre/promociones.html" cannot be found. It may have been moved, edited, or deleted.
 
 Roles
-css: guardar la informacion de los cleintes y las bicicletas
-html: el lugar donde mis clientes pueden visualizar las bicicletas, su informacion y alquilarlas
-Javascript: lo que hara que mi sitio web funcione
+css: hara que la pagina se vea mas bonita
+html: el lugar donde mis clientes pueden visualizar las bicicletas, su informacion y alquilarlas.
+
+
+MINI RETO 4
+Tabla de Rutas Usadas:
+Esta tabla resume las 9 combinaciones posibles de navegación por el sitio y las rutas escritas en los atributos href.
+
+Archivo de Origen	Destino	Ruta Escrita (href)
+index.html (Raíz)	Inicio	index.html
+index.html (Raíz)	Tarifas y rutas	paginas/tarifas.html
+index.html (Raíz)	Reservas	paginas/reservas.html
+paginas/tarifas.html	Inicio	../index.html
+paginas/tarifas.html	Tarifas y rutas	tarifas.html
+paginas/tarifas.html	Reservas	reservas.html
+paginas/reservas.html	Inicio	../index.html
+paginas/reservas.html	Tarifas y rutas	tarifas.html
+paginas/reservas.html	Reservas	reservas.html
+
+
+
+
+
