@@ -87,6 +87,11 @@ Estruptura de las paginas
 |  - Nombre del negocio, correo mailto y año de copyright               |
 +-----------------------------------------------------------------------+
 
+Decisiones del formulario de reserva
 
+1. Correo electrónico (type="email"): elegí este control porque permite introducir una dirección de correo y el navegador puede comprobar que tenga un formato válido.
+2. Tipo de vehículo (select): utilicé una lista desplegable porque el cliente debe elegir una opción entre varios tipos de vehículos disponibles. Así se evitan respuestas escritas de distintas maneras.
+3. Duración del alquiler (type="radio"): elegí botones de opción porque el cliente debe seleccionar una sola duración entre las alternativas disponibles.
+También utilicé type="checkbox" para aceptar las condiciones, ya que representa una decisión que se puede marcar o desmarcar, y textarea para los comentarios porque permite escribir un mensaje más largo.
 
 

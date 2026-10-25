@@ -10,8 +10,7 @@
 
     <header>
 
-        <h1>Reserva tu bicicleta</h1>
-        <p>Ponte en contacto con nosotros mientras preparamos nuestro formulario oficial</p>
+        <h1>Reserva tu bicicleta!!</h1>
 
          <nav>
             <ul>
@@ -23,14 +22,74 @@
 
     </header>
 
+    <hr>
+
     <main>
+        <h2>Formulario de reserva</h2>
 
-       <section class="contacto">
-            <h2>Contacto para Reservas</h2>
-            <p>Ponte en contacto con nosotros mientras preparamos nuestro formulario oficial.</p>
-            <p>Escríbenos a nuestro correo electrónico: <a href="mailto:reservas@ruedalibre.com">reservas@ruedalibre.com</a></p>
-        </section>
+         <form action="#" method="post">
 
+            <fieldset id="datos-personales">
+                <legend>Tus datos</legend>
+
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </fieldset>
+
+            <fieldset id="alquiler">
+                <legend>Tu alquiler</legend>
+
+                <label for="Bicicleta">Tipo de Bicicleta:</label>
+                <select id="Bicicleta" name="Bicicleta" required>
+                    <option value="">Seleccionar Bicicleta</option>
+                    <option value="bicicleta">Urbana</option>
+                    <option value="moto">Montaña</option>
+                    <option value="coche">Eléctrica</option>
+                </select>
+
+                <label for="fecha">Fecha de recogida:</label>
+                <input type="date" id="fecha" name="fecha" required>
+
+            <p>Duración del alquiler:</p>
+
+                <input type="radio" id="horas" name="duracion_horas" value="horas" required>
+                <label for="horas">horas</label>
+
+                <input type="radio" id="un-dia" name="duracion_dias" value="1-dia">
+                <label for="un-dia">Dias</label>
+
+                <p>Cuantas horas o días deseas alquilar la bicicleta:</p>
+                <input type="number" id="dias" name="dias" min="1" max="30" required>
+
+            </fieldset>
+
+            <fieldset id="confirmacion">
+                <legend>Confirmación</legend>
+
+                <label for="comentarios">Comentarios adicionales:</label>
+                <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+
+                <input type="checkbox" id="acepto" name="acepto" value="si" required>
+                <label for="acepto">Acepto las condiciones de la reserva</label>
+            </fieldset>
+
+        <button type="submit">Enviar reserva</button>
+
+    </form>
+
+</section>
+
+    <section class="contacto_horario_reserva">
+        <h2>Contacto para Reservas</h2>
+        <p>Si tienes alguna pregunta o necesitas más información sobre nuestras reservas, no dudes en contactarnos.</p>
+        <p>Escríbenos a nuestro correo electrónico: <a href="mailto:reservas@ruedalibre.com">reservas@ruedalibre.com</a></p>
+        <p>O llámanos al: <a href="tel:+573451234567">+57 345 123 4567</a></p>
         <aside>
 
             <h3>Horario de atención</h3>
@@ -44,6 +103,8 @@
             </dl>
 
         </aside>
+
+      <section>
     </main>
 
     <footer>
