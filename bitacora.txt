@@ -30,6 +30,62 @@ paginas/reservas.html	Inicio	../index.html
 paginas/reservas.html	Tarifas y rutas	tarifas.html
 paginas/reservas.html	Reservas	reservas.html
 
+eestructuración Semántica HTML5
+
+## 1. Esquema de Regiones de las Páginas
+Antes de modificar el código, se definió la arquitectura de regiones semánticas para cada vista:
+
+- **Header (`<header>`):** Agrupa el título o nombre del negocio y el bloque de navegación principal (`<nav>`).
+- **Main (`<main>`):** Contenedor único que abarca el contenido principal y central de cada página.
+  - *Inicio (`index.html`):*
+    - `<section>`: Bienvenida y presentación del sitio.
+    - `<section>`: Contenedor de servicios con dos unidades independientes:
+      - `<article>`: Servicio de Alquiler de Bicicletas.
+      - `<article>`: Servicio de Recorridos Guiados.
+    - `<section>`: Sección de llamada a la acción ("Reservar ahora").
+  - *Tarifas y Rutas (`paginas/tarifas.html`):*
+    - `<section>`: Tarifas de Alquiler de Bicicletas (con su tabla respectiva).
+    - `<section>`: Recorridos Guiados (con su tabla y botón de reserva).
+    - `<aside>`: Información importante y lista de elementos a llevar (contenido complementario).
+  - *Reservas (`paginas/reservas.html`):*
+    - `<section>`: Información de contacto directo por correo.
+    - `<aside>`: Horario de atención estructurado con lista de definiciones (`<dl>`).
+- **Footer (`<footer>`):** Bloque final que contiene el nombre del negocio, enlace de correo (`mailto:`) y el año de copyright.
+
+## 2. Justificación de Etiquetas Semánticas y Uso de `div`/`span`
+- Se reemplazaron todas las etiquetas genéricas por elementos nativos de HTML5 que aportan significado directo a motores de búsqueda y lectores de pantalla (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`).
+- **Justificación sobre `div` y `span`:** No fue necesario conservar ninguna etiqueta `div` o `span` sin significado estructural, ya que todo el contenido y la maquetación solicitada se cubrieron de forma óptima mediante las etiquetas semánticas estándar.
+
+## 3. Validación y Pruebas
+- **Jerarquía de encabezados:** Se conservó la estructura lógica de niveles (`<h1>`, `<h2>`, `<h3>`) sin alterar el orden establecido en fases anteriores.
+- **Enlaces y navegación:** Se recorrió el sitio completo utilizando exclusivamente el menú de navegación y los enlaces internos, confirmando en la pestaña Network de las DevTools la correcta carga de los recursos y la ausencia total de errores 404.
+
+Estruptura de las paginas
++-----------------------------------------------------------------------+
+| HEADER (<header>)                                                     |
+|  - Logotipo / Nombre del Negocio (<h1> / <h2>)                        |
+|  - NAV (<nav aria-label="Navegación principal">): Menú <ul>/<li>/<a>   |
++-----------------------------------------------------------------------+
+| MAIN (<main>) - Único por página                                      |
+|                                                                       |
+|  [Inicio (index.html)]                                                |
+|   - SECTION (Bienvenida y resumen)                                    |
+|   - SECTION (Nuestros Servicios):                                     |
+|      * ARTICLE (Alquiler de Bicicletas)                               |
+|      * ARTICLE (Recorridos Guiados)                                   |
+|                                                                       |
+|  [Tarifas y Rutas (paginas/tarifas.html)]                             |
+|   - SECTION (Tarifas de Alquiler de Bicicletas + Tabla)               |
+|   - SECTION (Recorridos Guiados + Tabla)                              |
+|   - ASIDE (Qué llevar e información importante)                       |
+|                                                                       |
+|  [Reservas (paginas/reservas.html)]                                   |
+|   - SECTION (Datos de contacto directo)                               |
+|   - ASIDE (Horario de atención)                                       |
++-----------------------------------------------------------------------+
+| FOOTER (<footer>)                                                     |
+|  - Nombre del negocio, correo mailto y año de copyright               |
++-----------------------------------------------------------------------+
 
 
 

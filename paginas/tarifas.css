@@ -1,8 +1,7 @@
-
 body {
     font-family: Garamond, sans-serif;
-    margin-top: 0px;
-    padding: 80px;
+    margin-top: 20px;
+    padding: 100px;
     max-width: 1000px;
     
 }
@@ -18,18 +17,6 @@ h1 ~ p {
     text-align: center;
     font-size: 20px;
     margin: 10px;
-}
-
-.bgyellow {
-    background-color: #d0ec63;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.bordergreen {
-    border: 2px solid #0b8005;
-    padding: 10px;
-    border-radius: 10px;
 }
 
 table {
@@ -50,6 +37,19 @@ th {
     background-color: #b5ebb2;
     color: rgb(4, 64, 7);
     font-weight: 600;
+}
+
+
+.bgyellow {
+    background-color: #f3eb79;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.bordergreen {
+    border: 2px solid #046d29;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 button {
