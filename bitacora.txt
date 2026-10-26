@@ -95,3 +95,50 @@ Decisiones del formulario de reserva
 También utilicé type="checkbox" para aceptar las condiciones, ya que representa una decisión que se puede marcar o desmarcar, y textarea para los comentarios porque permite escribir un mensaje más largo.
 
 
+Colores: Color
+	
+
+Código
+	
+
+Uso que propone el cliente
+
+Verde Ruta
+	
+
+#1E7A4F
+	
+
+Botones y enlaces
+
+Naranja Pedal
+	
+
+#F39A2B
+	
+
+Destacados y botones secundarios
+
+Azul Noche
+	
+
+#14213D
+	
+
+Títulos y encabezado
+
+Crema
+	
+
+#FAF6EF
+	
+
+Fondo general
+
+Gris Asfalto
+	
+
+#5B6470
+	
+
+Texto secundario

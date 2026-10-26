@@ -1,0 +1,220 @@
+:root {
+    /* Paleta de colores del cliente */
+    --color-primary: #1E7A4F;    /* Verde Ruta: botones y enlaces */
+    --color-secondary: #F39A2B;  /* Naranja Pedal: destacados y botones secundarios */
+    --color-heading: #14213D;    /* Azul Noche: títulos y encabezado */
+    --color-background: #FAF6EF; /* Crema: fondo general */
+    --color-text-secondary: #5B6470; /* Gris Asfalto: texto secundario */
+
+    /* Familias tipográficas */
+    --font-heading: "Montserrat", Arial, sans-serif;
+    --font-body: "Open Sans", Arial, sans-serif;
+
+    /* Escala de espaciado */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+}
+
+/* estilo de barra de navegacion*/
+nav{
+    width: 100%;
+    padding: 0.5rem;
+}
+
+nav ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/* Estilos generales */
+body {
+    font-family: var(--font-body);
+    color: var(--color-heading);
+    background-color: var(--color-background);
+    margin: 10px;
+    padding: 100px;
+    max-width: 1000px;
+}
+
+/* Tipografía de todos los encabezados */
+h1{color:#14213D;
+    text-align: center;
+    font-size: 50px;
+    margin: 10px;
+
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--color-heading);
+}
+
+/*tablas*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 3px solid #094d06;
+    border-radius: 10px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #0b3911;
+}
+
+th {
+    background-color:#95ec72;
+    color:#14213D;
+    font-weight: 600;
+}
+
+
+/* Texto secundario */
+.texto-secundario {
+    color: var(--color-text-secondary);
+}
+
+/* Enlaces */
+a {
+    color: var(--color-primary);
+}
+
+/* Botones principales */
+button {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    cursor: pointer;
+}
+
+/* Botones secundarios */
+.boton-secundario {
+    background-color: var(--color-secondary);
+    color: var(--color-heading);
+}
+
+/* Contenido principal */
+main {
+    padding: var(--spacing-md);
+}
+
+/* Separación entre secciones */
+section {
+    margin-bottom: var(--spacing-lg);
+}
+
+form {
+    max-width: 600px;
+    margin: var(--spacing-lg) auto;
+    padding: var(--spacing-lg);
+    background-color: var(--color-background);
+    border: 1px solid #d9d5ce;
+    border-radius: 12px;
+}
+
+/* Título del formulario */
+form h1,
+form h2,
+form h3 {
+    color: var(--color-heading);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Etiquetas */
+form label {
+    display: inline-block;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-heading);
+    font-weight: 600;
+}
+
+/* Campos de texto, números, fechas y listas */
+form input:not([type="radio"]):not([type="checkbox"]),
+form select,
+form textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--color-text-secondary);
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: var(--color-heading);
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+/* Cuando el usuario selecciona un campo */
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-color: var(--color-primary);
+}
+
+/* Texto de ayuda */
+form small,
+form .texto-secundario {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+}
+
+/* Opciones de radio y casillas */
+form input[type="radio"],
+form input[type="checkbox"] {
+    accent-color: var(--color-primary);
+    cursor: pointer;
+}
+
+/* Botón principal */
+form button[type="submit"] {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Efecto al pasar el cursor */
+form button[type="submit"]:hover {
+    background-color: var(--color-heading);
+}
+
+/* Botón secundario */
+form .boton-secundario {
+    background-color: var(--color-secondary);
+    color: var(--color-heading);
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Efecto del botón secundario */
+form .boton-secundario:hover {
+    filter: brightness(0.95);
+}
+
+/* Campos inválidos */
+form input:invalid:focus,
+form select:invalid:focus,
+form textarea:invalid:focus {
+    border-color: #b42318;
+}
