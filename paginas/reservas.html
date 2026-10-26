@@ -10,7 +10,7 @@
 
     <header>
 
-        <h1>Reserva tu bicicleta!!</h1>
+        <h1>Rueda Libre | Reserva tu bicicleta</h1>
 
          <nav>
             <ul>
@@ -33,13 +33,18 @@
                 <legend>Tus datos</legend>
 
                 <label for="nombre">Nombre completo:</label>
-                <input type="text" id="nombre" name="nombre" required>
+                <input type="text" id="nombre" name="nombre" required minlength="3" title="Por favor escribe tu nombre" required>
+
+                <label for="documento">N° Documento:</label>
+                <input type="doc" id="documento" name="Documento" required minlength="6" maxlength="10" pattern="{10}" 
+                title="Escribe de 6 a 10 numeros, sin espacios" required>
 
                 <label for="correo">Correo electrónico:</label>
                 <input type="email" id="correo" name="correo" required>
 
-                <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono" required>
+                <label for="telefono">Celular:</label>
+                <input type="tel" id="telefono" name="telefono" min="" pattern="3[0-9]*" title="El número debe comenzar por 3" required>
+
             </fieldset>
 
             <fieldset id="alquiler">
@@ -48,23 +53,38 @@
                 <label for="Bicicleta">Tipo de Bicicleta:</label>
                 <select id="Bicicleta" name="Bicicleta" required>
                     <option value="">Seleccionar Bicicleta</option>
-                    <option value="bicicleta">Urbana</option>
-                    <option value="moto">Montaña</option>
-                    <option value="coche">Eléctrica</option>
+                    <option value="Urbana">Urbana</option>
+                    <option value="montaña">Montaña</option>
+                    <option value="electrica">Eléctrica</option>
                 </select>
 
+                <label for="cantidad-biciletas">Cantidad de bicicletas:</label>
+                <select id="Bicicleta" name="Bicicleta" required>
+                    <option value="">¿Cuantas bicicletas?</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+
+
                 <label for="fecha">Fecha de recogida:</label>
-                <input type="date" id="fecha" name="fecha" required>
+                <input type="date" id="fecha" name="fecha" min="2026-11-01" max="2026-12-31" required>
 
-            <p>Duración del alquiler:</p>
+            <p>¿Que plan quieres?:</p>
 
-                <input type="radio" id="horas" name="duracion_horas" value="horas" required>
-                <label for="horas">horas</label>
+                <input type="radio" id="horas" name="plan" value="horas" required>
+                <label for="horas">Horas</label>
 
-                <input type="radio" id="un-dia" name="duracion_dias" value="1-dia">
-                <label for="un-dia">Dias</label>
+                <input type="radio" id="dias" name="plan" value="dias">
+                <label for="dias">Dias</label>
 
-                <p>Cuantas horas o días deseas alquilar la bicicleta:</p>
+                <input type="radio" id="" name="plan" value="1-dia">
+                <label for="un-dia">Semanas</label>
+
+                <p>¿por cuantas semanas dias u horas deseas alquilar?:</p>
                 <input type="number" id="dias" name="dias" min="1" max="30" required>
 
             </fieldset>
@@ -73,7 +93,7 @@
                 <legend>Confirmación</legend>
 
                 <label for="comentarios">Comentarios adicionales:</label>
-                <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+                <textarea id="comentarios" name="comentarios" rows="4" maxlength="300" title="Maximo 300 Caracteres"></textarea>
 
                 <input type="checkbox" id="acepto" name="acepto" value="si" required>
                 <label for="acepto">Acepto las condiciones de la reserva</label>
