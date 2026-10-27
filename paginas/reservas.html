@@ -27,7 +27,7 @@
     <main>
         <h2>Formulario de reserva</h2>
 
-         <form action="#" method="post">
+        <form action="#" method="post">
 
             <fieldset id="datos-personales">
                 <legend>Tus datos</legend>
@@ -36,8 +36,9 @@
                 <input type="text" id="nombre" name="nombre" required minlength="3" title="Por favor escribe tu nombre" required>
 
                 <label for="documento">N° Documento:</label>
-                <input type="doc" id="documento" name="Documento" required minlength="6" maxlength="10" pattern="{10}" 
-                title="Escribe de 6 a 10 numeros, sin espacios" required>
+                <input type="text" id="documento" name="documento" required
+                    inputmode="numeric" pattern="[0-9]{6,10}"
+                    title="Escribe de 6 a 10 números, sin espacios">
 
                 <label for="correo">Correo electrónico:</label>
                 <input type="email" id="correo" name="correo" required>
@@ -84,8 +85,8 @@
                 <input type="radio" id="" name="plan" value="1-dia">
                 <label for="un-dia">Semanas</label>
 
-                <p>¿por cuantas semanas dias u horas deseas alquilar?:</p>
-                <input type="number" id="numero" name="plan" min="1" max="30" required>
+                <label for="duracion">¿Por cuántas horas, días o semanas deseas alquilar?</label>
+                <input type="number" id="duracion" name="duracion" min="1" max="30" required>
 
             </fieldset>
 
@@ -124,7 +125,7 @@
 
         </aside>
 
-      <section>
+    </section>
     </main>
 
     <footer>

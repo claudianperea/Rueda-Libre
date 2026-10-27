@@ -1,144 +1,314 @@
+# Bitácora del proyecto: Rueda Libre
+
+> Sitio web para un negocio de alquiler de bicicletas en Medellín.
+> Esta bitácora registra **qué se construyó, por qué se decidió así, qué falló y qué se aprendió**.
+> Los campos marcados con **[COMPLETAR]** son datos que solo el equipo conoce.
+
+---
+
+## 1. Datos generales
+
+| Campo | Detalle |
+|---|---|
+| Proyecto | Rueda Libre – Alquiler de bicicletas |
+| Versión actual | v1.0 (commit `2025e38`) |
+| Repositorio | Git, rama `main` |
+| Periodo registrado | 20 al 27 de octubre de 2026 |
+| Tipo de sitio | Sitio estático multipágina (HTML5 + CSS3, sin JavaScript) |
+| Servidor de pruebas | `http://127.0.0.1:3000` |
+| Idioma del sitio | Español (`lang="es"`) |
+
+## 2. Objetivo y alcance
+
+**Objetivo:** ofrecer a los clientes un lugar donde conocer las bicicletas, consultar tarifas y recorridos guiados, y enviar una solicitud de reserva.
+
+**Páginas del sitio**
+
+| Página | Archivo | Función |
+|---|---|---|
+| Inicio | `index.html` | Presentación, servicios, cómo alquilar, beneficios, ubicación y contacto |
+| Tarifas y rutas | `paginas/tarifas.html` | Tabla de tarifas de alquiler, tabla de recorridos guiados, información importante |
+| Reservas | `paginas/reservas.html` | Formulario de reserva, contacto y horario de atención |
+
+**Fuera del alcance (por ahora):** procesamiento real del formulario (hoy usa `action="#"`), pagos en línea, JavaScript, base de datos.
+
+## 3. Roles
+
+| Tecnología | Rol dentro del proyecto |
+|---|---|
+| HTML | Es el lugar donde los clientes visualizan las bicicletas, su información y pueden alquilarlas |
+| CSS | Hace que la página se vea más agradable, con la identidad visual de la marca |
+
+### Equipo y aportes (según el historial de Git)
+
+| Integrante | Aportes principales |
+|---|---|
+| María Ángel | Estructura inicial del HTML: título principal y párrafo de bienvenida |
+| Cuenta `urango2706` | Secciones, listas, imágenes (portada, quiénes somos, cómo alquilar), resaltados y negritas |
+| Daniel Pabón | Vínculos de dirección, WhatsApp y correo; primera versión de la página de tarifas |
+| Claudia Perea | Tablas de tarifas, navegación entre páginas, página de reservas con `<dl>`, reestructuración semántica, formulario, integración final de `styles.css` (v1.0) |
+| Juan Manuel | Páginas semánticas, formulario validado, unificación del CSS en `css/styles.css` |
+
+**[COMPLETAR]** Si cada integrante tenía un rol formal (líder, diseño, contenido, pruebas), agrégalo aquí.
+
+## 4. Estructura de archivos
+
+```
+Rueda-Libre/
+├── index.html
+├── bitacora.txt / bitacora.md
+├── css/
+│   └── styles.css          ← única hoja de estilos del sitio
+├── imagenes/
+│   ├── Rueda Libre_Emblem.jpg
+│   ├── imagen_slogan.png
+│   ├── alquilar_bicicleta_ guíaruedalibre.png
+│   ├── bicicleta gris.jpg
+│   └── biclicletaportada.jpg
+└── paginas/
+    ├── tarifas.html
+    └── reservas.html
+```
+
+**Decisión:** al inicio cada página tenía su propio CSS (`main.css`, `tarifas.css`, `reservas.css`). En el commit `c71bd6b` se eliminaron y se unificaron en **un solo** `css/styles.css`, para mantener colores, tipografías y espacios consistentes en todo el sitio y evitar estilos duplicados.
+
+## 5. Cronología del desarrollo
+
+| Fecha | Autor | Avance | Commit |
+|---|---|---|---|
+| 20 oct | Claudia perea| Estructura inicial HTML, `<h1>` y párrafo de bienvenida | `c3c7707` |
+| 21 oct | Claudia Perea | Imagen de portada, secciones, listas, descripción de imagen | `0bce43a`, `c1845d9`, `d9cbff2` |
+| 21 oct | Claudia Perea| Imágenes de "quiénes somos" y "cómo alquilar", resaltados y negritas | `cd85bfb` |
+| 23 oct | Claudia Perea| Vínculos de dirección, WhatsApp y correo; se crea la página de tarifas | `72fb4de` |
+| 24 oct | Claudia Perea | `tarifas.html` con dos tablas, enlazada desde el inicio con botones | `1471e57` |
+| 24 oct | Claudia Perea | Navegación compartida, página de reservas con lista de definiciones | `dc0120c` |
+| 24 oct | Claudia Perea | Reestructuración semántica HTML5 (SEO y accesibilidad) | `ac1acdd` |
+| 25 oct | Claudia Perea | Reestructuración de páginas y construcción del formulario de reservas | `398dbdf` |
+| 26 oct | Claudia Perea| Tres páginas semánticas, formulario validado, bitácora con esquema de regiones | `4b2b83d` |
+| 26 oct | Claudia Perea| `styles.css` conectado a las tres páginas, con variables, tipografías y colores | `c71bd6b` |
+| 26 oct | Claudia Perea | Integración final de `styles.css` en páginas e inicio. **Rueda Libre v1.0** | `2025e38` |
+
+## 6. Fase 1: Rutas y navegación
+
+### 6.1 Anatomía de la URL de prueba
+
+```
 http://127.0.0.1:3000/Rueda-Libre/index.html
-protocolo: http
-host: 127.0.0.1
-Puerto: 3000
-ruta:Rueda-Libre/index.html
-metodo: GET
-Status: 200
+```
 
-Ruta no existente: 
-Status: 404, File not found
-The file "/home/cohorte8/ruedalibre_clau/Rueda-Libre/promociones.html" cannot be found. It may have been moved, edited, or deleted.
+| Parte | Valor |
+|---|---|
+| Protocolo | `http` |
+| Host | `127.0.0.1` (equipo local) |
+| Puerto | `3000` |
+| Ruta | `Rueda-Libre/index.html` |
+| Método | `GET` |
+| Estado | `200 OK` |
 
-Roles
-css: hara que la pagina se vea mas bonita
-html: el lugar donde mis clientes pueden visualizar las bicicletas, su informacion y alquilarlas.
+**Prueba de ruta inexistente:** se solicitó `promociones.html`, que no existe. El servidor respondió `404 – File not found`, lo que confirma que el servidor distingue entre recursos existentes y no existentes.
 
+### 6.2 Tabla de rutas usadas (Mini reto 4)
 
-MINI RETO 4
-Tabla de Rutas Usadas:
-Esta tabla resume las 9 combinaciones posibles de navegación por el sitio y las rutas escritas en los atributos href.
+Resume las 9 combinaciones de navegación entre las tres páginas y la ruta escrita en cada `href`.
 
-Archivo de Origen	Destino	Ruta Escrita (href)
-index.html (Raíz)	Inicio	index.html
-index.html (Raíz)	Tarifas y rutas	paginas/tarifas.html
-index.html (Raíz)	Reservas	paginas/reservas.html
-paginas/tarifas.html	Inicio	../index.html
-paginas/tarifas.html	Tarifas y rutas	tarifas.html
-paginas/tarifas.html	Reservas	reservas.html
-paginas/reservas.html	Inicio	../index.html
-paginas/reservas.html	Tarifas y rutas	tarifas.html
-paginas/reservas.html	Reservas	reservas.html
+| Archivo de origen | Destino | Ruta escrita (`href`) |
+|---|---|---|
+| `index.html` (raíz) | Inicio | `index.html` |
+| `index.html` (raíz) | Tarifas y rutas | `paginas/tarifas.html` |
+| `index.html` (raíz) | Reservas | `paginas/reservas.html` |
+| `paginas/tarifas.html` | Inicio | `../index.html` |
+| `paginas/tarifas.html` | Tarifas y rutas | `tarifas.html` |
+| `paginas/tarifas.html` | Reservas | `reservas.html` |
+| `paginas/reservas.html` | Inicio | `../index.html` |
+| `paginas/reservas.html` | Tarifas y rutas | `tarifas.html` |
+| `paginas/reservas.html` | Reservas | `reservas.html` |
 
-eestructuración Semántica HTML5
+**Regla aplicada:** desde la raíz se entra a la subcarpeta con `paginas/...`; desde `paginas/` se sube un nivel con `../`; entre páginas hermanas basta el nombre del archivo.
 
-## 1. Esquema de Regiones de las Páginas
-Antes de modificar el código, se definió la arquitectura de regiones semánticas para cada vista:
+## 7. Fase 2: Estructura semántica HTML5
 
-- **Header (`<header>`):** Agrupa el título o nombre del negocio y el bloque de navegación principal (`<nav>`).
-- **Main (`<main>`):** Contenedor único que abarca el contenido principal y central de cada página.
-  - *Inicio (`index.html`):*
-    - `<section>`: Bienvenida y presentación del sitio.
-    - `<section>`: Contenedor de servicios con dos unidades independientes:
-      - `<article>`: Servicio de Alquiler de Bicicletas.
-      - `<article>`: Servicio de Recorridos Guiados.
-    - `<section>`: Sección de llamada a la acción ("Reservar ahora").
-  - *Tarifas y Rutas (`paginas/tarifas.html`):*
-    - `<section>`: Tarifas de Alquiler de Bicicletas (con su tabla respectiva).
-    - `<section>`: Recorridos Guiados (con su tabla y botón de reserva).
-    - `<aside>`: Información importante y lista de elementos a llevar (contenido complementario).
-  - *Reservas (`paginas/reservas.html`):*
-    - `<section>`: Información de contacto directo por correo.
-    - `<aside>`: Horario de atención estructurado con lista de definiciones (`<dl>`).
-- **Footer (`<footer>`):** Bloque final que contiene el nombre del negocio, enlace de correo (`mailto:`) y el año de copyright.
+### 7.1 Esquema de regiones
 
-## 2. Justificación de Etiquetas Semánticas y Uso de `div`/`span`
-- Se reemplazaron todas las etiquetas genéricas por elementos nativos de HTML5 que aportan significado directo a motores de búsqueda y lectores de pantalla (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`).
-- **Justificación sobre `div` y `span`:** No fue necesario conservar ninguna etiqueta `div` o `span` sin significado estructural, ya que todo el contenido y la maquetación solicitada se cubrieron de forma óptima mediante las etiquetas semánticas estándar.
+- **`<header>`**: nombre del negocio y navegación principal (`<nav>`).
+- **`<main>`**: contenedor único del contenido central de cada página.
+  - *Inicio:* `<section>` de bienvenida; `<section>` de servicios con `<article>`; sección de llamada a la acción ("Reservar ahora").
+  - *Tarifas y rutas:* `<section>` de tarifas con tabla; `<section>` de recorridos con tabla y botón de reserva; `<aside>` con información importante y qué llevar.
+  - *Reservas:* `<form>` con tres `<fieldset>`; `<section>` de contacto; `<aside>` con horario en `<dl>`.
+- **`<footer>`**: nombre del negocio, enlace `mailto:` y año de copyright.
 
-## 3. Validación y Pruebas
-- **Jerarquía de encabezados:** Se conservó la estructura lógica de niveles (`<h1>`, `<h2>`, `<h3>`) sin alterar el orden establecido en fases anteriores.
-- **Enlaces y navegación:** Se recorrió el sitio completo utilizando exclusivamente el menú de navegación y los enlaces internos, confirmando en la pestaña Network de las DevTools la correcta carga de los recursos y la ausencia total de errores 404.
+### 7.2 Esquema visual
 
-Estruptura de las paginas
+```
 +-----------------------------------------------------------------------+
-| HEADER (<header>)                                                     |
-|  - Logotipo / Nombre del Negocio (<h1> / <h2>)                        |
-|  - NAV (<nav aria-label="Navegación principal">): Menú <ul>/<li>/<a>   |
+| HEADER                                                                |
+|  - Nombre del negocio (<h1>)                                          |
+|  - NAV: menú <ul>/<li>/<a>                                            |
 +-----------------------------------------------------------------------+
-| MAIN (<main>) - Único por página                                      |
-|                                                                       |
-|  [Inicio (index.html)]                                                |
-|   - SECTION (Bienvenida y resumen)                                    |
-|   - SECTION (Nuestros Servicios):                                     |
-|      * ARTICLE (Alquiler de Bicicletas)                               |
-|      * ARTICLE (Recorridos Guiados)                                   |
-|                                                                       |
-|  [Tarifas y Rutas (paginas/tarifas.html)]                             |
-|   - SECTION (Tarifas de Alquiler de Bicicletas + Tabla)               |
-|   - SECTION (Recorridos Guiados + Tabla)                              |
-|   - ASIDE (Qué llevar e información importante)                       |
-|                                                                       |
-|  [Reservas (paginas/reservas.html)]                                   |
-|   - SECTION (Datos de contacto directo)                               |
-|   - ASIDE (Horario de atención)                                       |
+| MAIN (único por página)                                               |
+|  [Inicio]    SECTION bienvenida · SECTION servicios (ARTICLE) · ...   |
+|  [Tarifas]   SECTION tarifas + tabla · SECTION recorridos + tabla     |
+|              ASIDE (qué llevar e información importante)              |
+|  [Reservas]  FORM (fieldsets) · SECTION contacto · ASIDE horario      |
 +-----------------------------------------------------------------------+
-| FOOTER (<footer>)                                                     |
-|  - Nombre del negocio, correo mailto y año de copyright               |
+| FOOTER                                                                |
+|  - Nombre, correo mailto y © 2026                                     |
 +-----------------------------------------------------------------------+
+```
 
-Decisiones del formulario de reserva
+### 7.3 Justificación
 
-1. Correo electrónico (type="email"): elegí este control porque permite introducir una dirección de correo y el navegador puede comprobar que tenga un formato válido.
-2. Tipo de vehículo (select): utilicé una lista desplegable porque el cliente debe elegir una opción entre varios tipos de vehículos disponibles. Así se evitan respuestas escritas de distintas maneras.
-3. Duración del alquiler (type="radio"): elegí botones de opción porque el cliente debe seleccionar una sola duración entre las alternativas disponibles.
-También utilicé type="checkbox" para aceptar las condiciones, ya que representa una decisión que se puede marcar o desmarcar, y textarea para los comentarios porque permite escribir un mensaje más largo.
+- Se reemplazaron etiquetas genéricas por elementos semánticos (`header`, `nav`, `main`, `section`, `article`, `aside`, `footer`) para dar significado a buscadores y lectores de pantalla.
+- Se mantuvo la jerarquía de encabezados (`h1`, `h2`, `h3`).
+- **Uso de `div`/`span`:** se conservaron únicamente `<div>` de apoyo en la cabecera y en el recuadro `.note` de "Qué llevar". No se usó `span`.
 
+## 8. Fase 3: Formulario de reservas
 
-Colores: Color
-	
+| Campo | Control elegido | Por qué |
+|---|---|---|
+| Correo | `type="email"` | El navegador valida el formato de la dirección |
+| Tipo de bicicleta | `<select>` | El cliente elige una opción entre varias y se evitan respuestas escritas de formas distintas |
+| Plan (horas, días, semanas) | `type="radio"` | Solo se puede elegir una opción |
+| Aceptar condiciones | `type="checkbox"` | Decisión que se marca o desmarca |
+| Comentarios | `<textarea>` | Permite un mensaje más largo (máx. 300 caracteres) |
+| Fecha de recogida | `type="date"` | Selector nativo, limitado entre 2026-11-01 y 2026-12-31 |
+| Celular | `type="tel"` con `pattern="3[0-9]*"` | Los celulares en Colombia empiezan por 3 |
 
-Código
-	
+Los campos se agruparon en tres `<fieldset>` con `<legend>`: **Tus datos**, **Tu alquiler** y **Confirmación**.
 
-Uso que propone el cliente
+## 9. Fase 4: Estilos CSS
 
-Verde Ruta
-	
+### 9.1 Paleta de marca
 
-#1E7A4F
-	
+| Color | Código | Uso propuesto por el cliente |
+|---|---|---|
+| Verde Ruta | `#1E7A4F` | Botones y enlaces |
+| Naranja Pedal | `#F39A2B` | Destacados y botones secundarios |
+| Azul Noche | `#14213D` | Títulos y encabezado |
+| Crema | `#FAF6EF` | Fondo general |
+| Gris Asfalto | `#5B6470` | Texto secundario |
 
-Botones y enlaces
+### 9.2 Organización de `css/styles.css`
 
-Naranja Pedal
-	
+La hoja está dividida en nueve bloques comentados:
 
-#F39A2B
-	
+| # | Bloque | Contenido |
+|---|---|---|
+| 1 | Variables de marca | Colores, fuentes y escala de espaciado en `:root` |
+| 2 | Base, herencia y modelo de caja | `box-sizing`, estilos de `body`, títulos, imágenes, `main` |
+| 3 | Encabezado y navegación | Cabecera azul, menú con `flexbox`, estados `hover` y `focus-visible` |
+| 4 | Enlaces y botones | Estilo unificado para todos los botones del sitio |
+| 5 | Portada y tarjetas | Grid de servicios, bloques de contenido |
+| 6 | Tablas | Encabezado azul, bordes, filas |
+| 7 | Formulario | Campos, `fieldset`, estados de foco |
+| 8 | Pie de página y WhatsApp fijo | Footer y botón flotante |
+| 9 | Ajustes para pantallas pequeñas | `@media (max-width: 40rem)` |
 
-Destacados y botones secundarios
+### 9.3 Decisiones técnicas
 
-Azul Noche
-	
+1. **Variables CSS (`--verde-ruta`, `--espacio-md`, etc.)**: cambiar un color o espacio en un solo lugar lo actualiza en todo el sitio.
+2. **`box-sizing: border-box` global**: el ancho de un elemento incluye su padding y borde, lo que hace los cálculos de maquetación predecibles.
+3. **Herencia**: `font-family`, `color` y `line-height` se definen en `body` y los demás elementos los heredan; solo los títulos sobrescriben la fuente.
+4. **Tipografía**: Montserrat para títulos y Open Sans para texto, ambas con Arial como respaldo. Los tamaños de `h1` y `h2` usan `clamp()` para que escalen según el ancho de pantalla.
+5. **Unidades relativas** (`rem`, `%`, `min()`): el ancho de `main` es `min(100% - 2rem, 68rem)`, así que se adapta sin saltos bruscos.
+6. **Layout**: `flexbox` para el menú y `grid` con `auto-fit` para tarjetas de servicios.
+7. **Accesibilidad**: `:focus-visible` con contorno naranja de 3 px para navegación con teclado; contraste alto entre Azul Noche y Crema.
+8. **Responsive**: un único punto de quiebre en `40rem` que ajusta márgenes, menú, formulario, tablas y botón de WhatsApp.
 
-#14213D
-	
+### 9.4 Problema de especificidad (documentado en el CSS)
 
-Títulos y encabezado
+**Situación:** se quería que el enlace de la página activa se viera naranja, pero la regla general `#menu a` (especificidad 0,1,1) tenía más peso que `.activo` (0,1,0), por lo que el color no se aplicaba.
 
-Crema
-	
+**Solución:** se aumentó la especificidad de la regla activa a `#menu a.activo` y `nav ul a.activo`.
 
-#FAF6EF
-	
+**Lección:** cuando un estilo "no se aplica", casi siempre otra regla más específica gana. Se revisa en DevTools → pestaña *Styles*, donde las reglas vencidas aparecen tachadas.
 
-Fondo general
+## 10. Pruebas y validación
 
-Gris Asfalto
-	
+### Realizadas (según la bitácora original)
 
-#5B6470
-	
+- Recorrido completo del sitio usando solo el menú y los enlaces internos.
+- Revisión en DevTools → *Network*: todos los recursos cargan y no hay errores 404.
+- Prueba deliberada de una ruta inexistente (`promociones.html`) para observar el 404.
+- Revisión de la jerarquía de encabezados.
 
-Texto secundario
+### Pendientes de registrar **[COMPLETAR]**
+
+- [ ] Validación del HTML en validator.w3.org (resultado: ___ errores / ___ advertencias)
+- [ ] Prueba responsive en DevTools (modo dispositivo) a 375 px, 768 px y 1280 px
+- [ ] Prueba en al menos dos navegadores (Chrome y Firefox)
+- [ ] Envío del formulario con campos vacíos y con datos inválidos
+- [ ] Navegación solo con teclado (Tab)
+- [ ] Capturas de pantalla de cada página (carpeta sugerida: `imagenes/capturas/`)
+
+## 11. Problemas detectados en la revisión del código
+
+Esta sección enumera defectos reales encontrados al revisar la versión v1.0. Son la base para la siguiente iteración.
+
+### 11.1 CSS y su conexión con el HTML
+
+| # | Hallazgo | Impacto | Corrección sugerida |
+|---|---|---|---|
+| 1 | Se declaran `Montserrat` y `Open Sans`, pero ninguna página enlaza Google Fonts | El navegador usa Arial; la tipografía de marca no se ve | Agregar el `<link>` de Google Fonts en el `<head>` de las tres páginas |
+| 2 | El CSS define `#menu a.activo` / `nav ul a.activo`, pero ningún enlace tiene `class="activo"` ni existe `id="menu"` | El enlace de la página actual no se resalta; la solución de especificidad documentada no tiene efecto visible | Añadir `class="activo"` al enlace correspondiente en cada página |
+| 3 | Clases definidas en CSS sin uso en HTML: `.servicios-grid`, `.tarjeta-servicio`, `.etiqueta-nuevo`, `.enlace-whatsapp`, `.boton-secundario` | Código muerto; el botón flotante de WhatsApp no aparece | Usarlas o eliminarlas |
+| 4 | Clases usadas en HTML sin estilo: `bgyellow`, `bordergreen`, `tarifas_bicicletas`, `tarifas_recorridos` | Sin efecto; sobran en el marcado | Eliminarlas o definirlas |
+| 5 | `index.html` no tiene `<footer>`, aunque la bitácora indica uno por página | Inconsistencia con el diseño semántico | Agregar el mismo footer de las otras páginas |
+
+### 11.2 HTML
+
+| # | Archivo | Hallazgo | Corrección sugerida |
+|---|---|---|---|
+| 6 | `index.html` | `<h3></h3><strong>Servicios…</strong></h3>`: etiqueta mal cerrada y vacía | `<h3>Servicios de Rueda Libre</h3>` |
+| 7 | `index.html` | Los títulos de sección saltan entre `h2`, `h3` y `h4` sin orden lógico | Revisar la jerarquía |
+| 8 | `tarifas.html` | Se usa `<header>` donde debe ir `<head>` | Cambiar a `<head>` |
+| 9 | `tarifas.html` | El `<aside>` se cierra con `<aside>` en lugar de `</aside>` | Corregir el cierre |
+| 10 | `tarifas.html` | Atributo `border="1"` en tablas (presentacional) | Quitarlo; el CSS ya dibuja los bordes |
+| 11 | `reservas.html` | `id="Bicicleta"` e `id="dias"` repetidos; los `id` deben ser únicos | Renombrar (`cantidad`, `duracion`) |
+| 12 | `reservas.html` | `<label for="cantidad-biciletas">` no coincide con ningún `id` | Alinear `for` e `id` |
+| 13 | `reservas.html` | `type="doc"` no existe; `pattern="{10}"` es una expresión regular inválida | `type="text"` con `pattern="[0-9]{6,10}"` |
+| 14 | `reservas.html` | El tercer radio tiene `id=""` y su label apunta a `un-dia` | Dar `id="semanas"` y `for="semanas"` |
+| 15 | `reservas.html` | Hay un `</section>` sin apertura y un `<section>` sin cierre al final | Corregir el anidamiento |
+| 16 | Varias | Botones con `onclick="window.location.href=…"` para navegar | Usar `<a class="boton-…">`, que es más accesible y funciona sin JavaScript |
+
+### 11.3 Contenido de la bitácora anterior
+
+- Decía que no se usó ningún `div`, pero el código tiene `div` (cabecera y `.note`). Ya se corrigió en la sección 7.3.
+- El formulario hablaba de "tipo de vehículo", pero el campo real es **tipo de bicicleta**. Corregido en la sección 8.
+
+## 12. Aprendizajes
+
+1. Una **hoja de estilos única** evita inconsistencias y es más fácil de mantener que un CSS por página.
+2. Las **variables CSS** convierten la identidad de marca en un solo punto de cambio.
+3. Una regla CSS puede estar correcta y aun así no verse: hay que revisar que el HTML use la clase o el `id` correspondiente.
+4. Las **rutas relativas** dependen de la ubicación del archivo que las escribe (`../` para subir de carpeta).
+5. Los `id` únicos y los pares `label for` / `id` son indispensables para formularios accesibles.
+6. Los mensajes de commit claros (`feat(web): …`) permiten reconstruir esta bitácora.
+
+**[COMPLETAR]** Agrega aquí uno o dos aprendizajes personales o del equipo.
+
+## 13. Próximos pasos
+
+- [ ] Aplicar las correcciones de la sección 11 (prioridad: 1, 2, 6, 8, 9, 11–15)
+- [ ] Añadir el footer a `index.html` y decidir si el botón de WhatsApp se incluye
+- [ ] Optimizar imágenes: las cinco pesan entre 1,4 MB y 3,2 MB; convertirlas a WebP y reducir su tamaño mejoraría la carga
+- [ ] Agregar `alt` descriptivos (hoy dos imágenes usan "emblema")
+- [ ] Conectar el formulario a un servicio real de envío
+- [ ] Completar las pruebas pendientes de la sección 10
+
+---
+
+## Anexo: plantilla para futuras entradas
+
+Copia este bloque cada vez que termines una tarea:
+
+```markdown
+### [Fecha] – [Nombre de la tarea]
+**Responsable:** 
+**Objetivo:** ¿Qué se quería lograr?
+**Qué hice:** Pasos concretos y archivos modificados.
+**Decisiones:** Qué opciones había y por qué elegí esta.
+**Problemas y solución:** Qué falló, cómo lo diagnostiqué, cómo lo resolví.
+**Cómo lo probé:** Navegador, DevTools, tamaños de pantalla, validadores.
+**Commit:** `hash` – mensaje
+**Pendiente:** Qué quedó sin resolver.
+```
