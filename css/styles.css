@@ -1,220 +1,296 @@
+/* =====================================================
+   RUEDA LIBRE — estilos globales v1.0
+   ===================================================== */
+
+/* 1. Variables de marca */
 :root {
-    /* Paleta de colores del cliente */
-    --color-primary: #1E7A4F;    /* Verde Ruta: botones y enlaces */
-    --color-secondary: #F39A2B;  /* Naranja Pedal: destacados y botones secundarios */
-    --color-heading: #14213D;    /* Azul Noche: títulos y encabezado */
-    --color-background: #FAF6EF; /* Crema: fondo general */
-    --color-text-secondary: #5B6470; /* Gris Asfalto: texto secundario */
+  --verde-ruta: #1E7A4F;
+  --naranja-pedal: #F39A2B;
+  --azul-noche: #14213D;
+  --crema: #FAF6EF;
+  --gris-asfalto: #5B6470;
 
-    /* Familias tipográficas */
-    --font-heading: "Montserrat", Arial, sans-serif;
-    --font-body: "Open Sans", Arial, sans-serif;
+  --fuente-titulos: "Montserrat", Arial, sans-serif;
+  --fuente-texto: "Open Sans", Arial, sans-serif;
 
-    /* Escala de espaciado */
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 2rem;
+  --espacio-xs: 0.5rem;
+  --espacio-sm: 0.75rem;
+  --espacio-md: 1rem;
+  --espacio-lg: 1.5rem;
+  --espacio-xl: 2rem;
+  --espacio-xxl: 3rem;
 }
 
-/* estilo de barra de navegacion*/
-nav{
-    width: 100%;
-    padding: 0.5rem;
+/* 2. Base, herencia y modelo de caja */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-nav ul{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+html {
+  scroll-behavior: smooth;
 }
 
-
-/* Estilos generales */
 body {
-    font-family: var(--font-body);
-    color: var(--color-heading);
-    background-color: var(--color-background);
-    margin: 10px;
-    padding: 100px;
-    max-width: 1000px;
+  margin: 0;
+  padding: 0 0 6rem;
+  font-family: var(--fuente-texto);
+  color: var(--azul-noche);
+  background-color: var(--crema);
+  line-height: 1.65;
 }
 
-/* Tipografía de todos los encabezados */
-h1{color:#14213D;
-    text-align: center;
-    font-size: 50px;
-    margin: 10px;
-
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fuente-titulos);
+  color: var(--azul-noche);
+  line-height: 1.2;
 }
 
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font-heading);
-    color: var(--color-heading);
-}
-
-/*tablas*/
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    border: 3px solid #094d06;
-    border-radius: 10px;
-}
-
-th, td {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #0b3911;
-}
-
-th {
-    background-color:#95ec72;
-    color:#14213D;
-    font-weight: 600;
-}
-
-
-/* Texto secundario */
-.texto-secundario {
-    color: var(--color-text-secondary);
-}
-
-/* Enlaces */
-a {
-    color: var(--color-primary);
-}
-
-/* Botones principales */
-button {
-    background-color: var(--color-primary);
-    color: var(--color-background);
-    border: none;
-    padding: var(--spacing-sm) var(--spacing-md);
-    cursor: pointer;
-}
-
-/* Botones secundarios */
-.boton-secundario {
-    background-color: var(--color-secondary);
-    color: var(--color-heading);
-}
-
-/* Contenido principal */
+h1 { margin: 0; font-size: clamp(2rem, 4vw, 3rem); }
+h2 { margin-top: 0; font-size: clamp(1.6rem, 3vw, 2.2rem); }
+h3 { font-size: 1.35rem; }
+p { margin: 0 0 var(--espacio-md); }
+img { display: block; max-width: 100%; height: auto; border-radius: 0.5rem; }
 main {
-    padding: var(--spacing-md);
+  width: min(100% - 2rem, 68rem);
+  margin: 0 auto;
+  padding: var(--espacio-xl) 0;
+}
+section { margin-bottom: var(--espacio-xxl); }
+hr { width: min(100% - 2rem, 68rem); margin: 0 auto; border: 0; border-top: 1px solid var(--gris-asfalto); opacity: 0.35; }
+
+/* 3. Encabezado y navegación */
+.site-header,
+body > header {
+  background-color: var(--azul-noche);
+  color: var(--crema);
+  padding: var(--espacio-lg) max(1rem, calc((100% - 68rem) / 2));
+}
+.site-header h1,
+body > header h1,
+.site-header p,
+body > header p { color: var(--crema); }
+.site-header > div,
+body > header > div { text-align: center; }
+nav { width: 100%; margin-top: var(--espacio-md); }
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--espacio-sm) var(--espacio-xl);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#menu a,
+nav ul a {
+  display: inline-block;
+  padding: var(--espacio-xs) var(--espacio-sm);
+  color: var(--crema);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0.35rem;
+  transition: background-color 160ms ease, color 160ms ease;
 }
 
-/* Separación entre secciones */
-section {
-    margin-bottom: var(--spacing-lg);
+/* #menu a (0,1,1) prevalece sobre .activo (0,1,0); se resuelve aumentando la especificidad de la clase activa. */
+#menu a.activo,
+nav ul a.activo {
+  color: var(--azul-noche);
+  background-color: var(--naranja-pedal);
+  font-weight: 600;
+}
+#menu a:hover,
+nav ul a:hover {
+  color: var(--azul-noche);
+  background-color: var(--naranja-pedal);
+}
+#menu a:focus-visible,
+nav ul a:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--naranja-pedal);
+  outline-offset: 3px;
 }
 
+/* 4. Enlaces y botones */
+a { color: var(--verde-ruta); font-weight: 600; }
+a:hover { color: var(--azul-noche); }
+button,
+.boton-accion,
+.boton-tarifas,
+.btn-reservar,
+.ir_reservar,
+.volver_inicio {
+  display: inline-block;
+  margin-top: var(--espacio-sm);
+  padding: var(--espacio-sm) var(--espacio-lg);
+  border: 2px solid var(--verde-ruta);
+  border-radius: 0.5rem;
+  background-color: var(--verde-ruta);
+  color: var(--crema);
+  font: 600 1rem var(--fuente-texto);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+button:hover,
+.boton-accion:hover,
+.boton-tarifas:hover,
+.btn-reservar:hover,
+.ir_reservar:hover,
+.volver_inicio:hover {
+  background-color: var(--azul-noche);
+  border-color: var(--azul-noche);
+  color: var(--crema);
+}
+button:active { transform: translateY(1px); }
+.boton-secundario { background-color: var(--naranja-pedal); border-color: var(--naranja-pedal); color: var(--azul-noche); }
+.boton-secundario:hover { background-color: var(--azul-noche); border-color: var(--azul-noche); color: var(--crema); }
+
+/* 5. Portada y tarjetas de servicios */
+#portada,
+main > img:first-of-type {
+  margin: var(--espacio-lg) auto;
+}
+#nuestros-servicios > h3 { margin-bottom: var(--espacio-lg); }
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: var(--espacio-lg);
+}
+.tarjeta-servicio,
+.servicios {
+  position: relative;
+  padding: var(--espacio-lg);
+  border: 1px solid var(--gris-asfalto);
+  border-radius: 0.75rem;
+  background-color: var(--crema);
+  box-shadow: 0 0.25rem 0.75rem var(--gris-asfalto);
+}
+.tarjeta-servicio img { width: 100%; margin-bottom: var(--espacio-md); object-fit: cover; }
+.tarjeta-servicio h4 { margin: 0 0 var(--espacio-xs); }
+.etiqueta-nuevo {
+  position: absolute;
+  top: var(--espacio-sm);
+  right: var(--espacio-sm);
+  z-index: 1;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background-color: var(--naranja-pedal);
+  color: var(--azul-noche);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.contenido-desplegable,
+.pasos-alquiler,
+.beneficios,
+.ubicacion,
+.contacto,
+.informacion_importante,
+.contacto_horario_reserva,
+.note {
+  padding: var(--espacio-lg);
+  border-radius: 0.75rem;
+  background-color: var(--crema);
+}
+.contenido-desplegable img,
+.pasos-alquiler img { width: 100%; margin: var(--espacio-lg) auto 0; }
+mark { padding: 0.1rem 0.25rem; background-color: var(--naranja-pedal); color: var(--azul-noche); }
+
+/* 6. Tablas */
+table {
+  width: 100%;
+  margin: var(--espacio-md) 0 var(--espacio-lg);
+  border-collapse: collapse;
+  background-color: var(--crema);
+  border: 1px solid var(--gris-asfalto);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+th, td { padding: var(--espacio-sm) var(--espacio-md); border: 1px solid var(--gris-asfalto); text-align: left; }
+th { background-color: var(--azul-noche); color: var(--crema); font-weight: 600; }
+tbody tr:nth-child(even) { background-color: var(--crema); }
+
+/* 7. Formulario */
 form {
-    max-width: 600px;
-    margin: var(--spacing-lg) auto;
-    padding: var(--spacing-lg);
-    background-color: var(--color-background);
-    border: 1px solid #d9d5ce;
-    border-radius: 12px;
+  width: min(100%, 42rem);
+  margin: var(--espacio-xl) auto;
+  padding: var(--espacio-xl);
+  border: 1px solid var(--gris-asfalto);
+  border-radius: 0.75rem;
+  background-color: var(--crema);
 }
-
-/* Título del formulario */
-form h1,
-form h2,
-form h3 {
-    color: var(--color-heading);
-    margin-bottom: var(--spacing-md);
-}
-
-/* Etiquetas */
-form label {
-    display: inline-block;
-    margin-bottom: var(--spacing-sm);
-    color: var(--color-heading);
-    font-weight: 600;
-}
-
-/* Campos de texto, números, fechas y listas */
+fieldset { min-width: 0; margin: 0 0 var(--espacio-lg); padding: var(--espacio-lg); border: 1px solid var(--gris-asfalto); border-radius: 0.5rem; }
+legend { padding: 0 var(--espacio-xs); font-family: var(--fuente-titulos); font-weight: 700; }
+form label { display: block; margin: var(--espacio-sm) 0 var(--espacio-xs); color: var(--azul-noche); font-weight: 600; }
 form input:not([type="radio"]):not([type="checkbox"]),
 form select,
 form textarea {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: var(--spacing-md);
-    border: 1px solid var(--color-text-secondary);
-    border-radius: 6px;
-    background-color: #ffffff;
-    color: var(--color-heading);
-    font-family: var(--font-body);
-    font-size: 1rem;
+  display: block;
+  width: 100%;
+  margin: 0 0 var(--espacio-md);
+  padding: var(--espacio-sm);
+  border: 1px solid var(--gris-asfalto);
+  border-radius: 0.35rem;
+  background-color: var(--crema);
+  color: var(--azul-noche);
+  font: 400 1rem var(--fuente-texto);
 }
-
-/* Cuando el usuario selecciona un campo */
+form input[type="radio"],
+form input[type="checkbox"] { accent-color: var(--verde-ruta); }
 form input:focus,
 form select:focus,
-form textarea:focus {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-    border-color: var(--color-primary);
-}
-
-/* Texto de ayuda */
-form small,
-form .texto-secundario {
-    color: var(--color-text-secondary);
-    font-size: 0.875rem;
-}
-
-/* Opciones de radio y casillas */
-form input[type="radio"],
-form input[type="checkbox"] {
-    accent-color: var(--color-primary);
-    cursor: pointer;
-}
-
-/* Botón principal */
-form button[type="submit"] {
-    background-color: var(--color-primary);
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    padding: 0.75rem 1.5rem;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-/* Efecto al pasar el cursor */
-form button[type="submit"]:hover {
-    background-color: var(--color-heading);
-}
-
-/* Botón secundario */
-form .boton-secundario {
-    background-color: var(--color-secondary);
-    color: var(--color-heading);
-    border: none;
-    border-radius: 6px;
-    padding: 0.75rem 1.5rem;
-    font-family: var(--font-body);
-    font-weight: 600;
-    cursor: pointer;
-}
-
-/* Efecto del botón secundario */
-form .boton-secundario:hover {
-    filter: brightness(0.95);
-}
-
-/* Campos inválidos */
+form textarea:focus { outline: 3px solid var(--naranja-pedal); outline-offset: 2px; border-color: var(--verde-ruta); }
 form input:invalid:focus,
 form select:invalid:focus,
-form textarea:invalid:focus {
-    border-color: #b42318;
+form textarea:invalid:focus { border-color: var(--verde-ruta); }
+form button[type="submit"] { padding: var(--espacio-md) var(--espacio-xl); }
+
+/* 8. Pie de página y WhatsApp fijo */
+footer {
+  margin-top: var(--espacio-xl);
+  padding: var(--espacio-lg) 1rem;
+  background-color: var(--azul-noche);
+  color: var(--crema);
+  text-align: center;
+}
+footer p { margin: 0; }
+footer a { color: var(--naranja-pedal); }
+.enlace-whatsapp {
+  position: fixed;
+  right: var(--espacio-lg);
+  bottom: var(--espacio-lg);
+  z-index: 10;
+  display: inline-block;
+  padding: var(--espacio-sm) var(--espacio-lg);
+  border: 2px solid var(--crema);
+  border-radius: 999px;
+  background-color: var(--verde-ruta);
+  color: var(--crema);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 0.25rem 0.75rem var(--gris-asfalto);
+}
+.enlace-whatsapp:hover { background-color: var(--azul-noche); color: var(--crema); }
+
+/* 9. Ajustes para elementos y pantallas pequeñas */
+#datos-personales, #alquiler, #confirmacion { margin-bottom: var(--espacio-lg); }
+main > section > img { margin-inline: auto; }
+@media (max-width: 40rem) {
+  body { padding-bottom: 6.5rem; }
+  main { width: min(100% - 1.25rem, 68rem); padding: var(--espacio-lg) 0; }
+  .site-header, body > header { padding: var(--espacio-lg) 0.75rem; }
+  nav ul { gap: var(--espacio-xs); }
+  #menu a, nav ul a { padding: var(--espacio-xs); }
+  form { padding: var(--espacio-md); }
+  table { font-size: 0.85rem; }
+  th, td { padding: var(--espacio-xs); }
+  .enlace-whatsapp { right: var(--espacio-sm); bottom: var(--espacio-sm); }
 }
