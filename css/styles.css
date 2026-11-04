@@ -49,11 +49,15 @@ h1 { margin: 0; font-size: clamp(2rem, 4vw, 3rem); }
 h2 { margin-top: 0; font-size: clamp(1.6rem, 3vw, 2.2rem); }
 h3 { font-size: 1.35rem; }
 p { margin: 0 0 var(--espacio-md); }
-img { display: block; max-width: 100%; height: auto; border-radius: 1rem; }
-main {
-  width: min(100% - 2rem, 68rem);
-  margin: 0 auto;
-  padding: var(--espacio-xl) 0;
+
+meta viewport {
+  width: device-width;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
 }
 section { margin-bottom: var(--espacio-xxl); }
 hr { width: min(100% - 2rem, 68rem); margin: 0 auto; border: 0; border-top: 1px solid var(--gris-asfalto); opacity: 0.35; }
@@ -159,13 +163,17 @@ button:active { transform: translateY(1px); }
 main > img:first-of-type {
   margin: var(--espacio-lg) auto;
 }
-#nuestros-servicios > h3 { margin-bottom: var(--espacio-lg); }
-.servicios-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-  gap: var(--espacio-lg);
+.portada {
+display:grid;
+grid-template-columns: 1fr 1fr;
+min-height: 60vh;
+padding: 80px;
+gap: 40px;
 }
-.tarjeta-servicio,
+
+
+#nuestros-servicios > h3 { margin-bottom: var(--espacio-lg); }
+
 .servicios {
   position: relative;
   padding: var(--espacio-lg);
@@ -174,21 +182,8 @@ main > img:first-of-type {
   background-color: var(--crema);
   box-shadow: 0 0.25rem 0.75rem var(--gris-asfalto);
 }
-.tarjeta-servicio img { width: 100%; margin-bottom: var(--espacio-md); object-fit: cover; }
-.tarjeta-servicio h4 { margin: 0 0 var(--espacio-xs); }
-.etiqueta-nuevo {
-  position: absolute;
-  top: var(--espacio-sm);
-  right: var(--espacio-sm);
-  z-index: 1;
-  padding: 0.25rem 0.65rem;
-  border-radius: 999px;
-  background-color: var(--naranja-pedal);
-  color: var(--azul-noche);
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-/* 5b. Nuestra flota: Grid para la cuadrícula, Flexbox dentro de cada tarjeta */
+
+/* 5b. Nuestra flota y Nuestras rutas: Grid para la cuadrícula, Flexbox dentro de cada tarjeta */
 #nuestra-flota > p { margin-bottom: var(--espacio-lg); }
 .flota-grid {
   display: grid;
@@ -214,6 +209,24 @@ main > img:first-of-type {
   margin-top: auto;                 /* empuja el enlace al final de la tarjeta, sin importar cuánto mida la descripción */
   align-self: flex-start;           /* el enlace conserva su ancho natural */
 }
+
+#rutas > p { margin-bottom: var(--espacio-lg); }
+.rutas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: var(--espacio-lg);
+}
+
+.tarjeta-ruta {
+  display: flex;                    /* Flexbox dentro de la tarjeta */
+  flex-direction: column;           /* los hijos se apilan: imagen, nombre, descripción, precio, enlace */
+  justify-content: flex-start;      /* el contenido arranca arriba */
+  padding: var(--espacio-lg);       /* box model de la semana 1: relleno, borde y esquinas */
+  border: 1px solid var(--gris-asfalto);
+  border-radius: 0.75rem;
+  background-color: var(--crema);
+}
+
 .contenido-desplegable,
 .pasos-alquiler,
 .beneficios,
@@ -246,6 +259,7 @@ tbody tr:nth-child(even) { background-color: var(--crema); }
 
 /* 7. Formulario */
 form {
+  aspect-ratio: 2 / 1;
   width: min(100%, 42rem);
   margin: var(--espacio-xl) auto;
   padding: var(--espacio-xl);
@@ -279,7 +293,9 @@ form select:invalid:focus,
 form textarea:invalid:focus { border-color: var(--verde-ruta); }
 form button[type="submit"] { padding: var(--espacio-md) var(--espacio-xl); }
 
-/* 8. Pie de página (Flexbox) y WhatsApp fijo */
+.contacto_horario_reserva { aspect-ratio: 2 / 1; margin: 0 0 var(--espacio-xs); }
+
+/* 8. Pie de página y WhatsApp fijo */
 footer {
   display: flex;                    /* los tres bloques del pie quedan en fila */
   flex-wrap: wrap;                  /* si no caben, bajan a otra línea */
@@ -324,8 +340,34 @@ main > section > img { margin-inline: auto; }
   nav ul { gap: var(--espacio-xs); justify-content: flex-start; }
   footer { padding-inline: 0.75rem; }
   #menu a, nav ul a { padding: var(--espacio-xs); }
+  .portada { grid-template-columns: 1fr; padding: var(--espacio-lg); gap: var(--espacio-md); }
   form { padding: var(--espacio-md); }
   table { font-size: 0.85rem; }
   th, td { padding: var(--espacio-xs); }
   .enlace-whatsapp { right: var(--espacio-sm); bottom: var(--espacio-sm); }
+}
+
+/* TABLET: 768px en adelante */
+@media screen and (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    nav {
+        justify-content: flex-end;
+    }
+}
+
+/* ESCRITORIO: 1200px en adelante */
+@media screen and (min-width: 1200px) {
+    header {
+        padding: 20px 60px;
+    }
+
+    nav {
+        gap: 30px;
+    }
 }
