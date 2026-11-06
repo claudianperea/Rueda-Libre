@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* Colores y tipografías compartidos con la marca Rueda Libre. */
+@theme {
+    --color-verde-ruta: #1E7A4F;
+    --color-naranja-pedal: #F39A2B;
+    --color-azul-noche: #14213D;
+    --color-crema: #FAF6EF;
+    --color-gris-asfalto: #5B6470;
+    --color-amarillo-farol: #FFD166;
+    --font-montserrat: "Montserrat", Arial, sans-serif;
+    --font-open-sans: "Open Sans", Arial, sans-serif;
+}
+
+/* Se reutilizan solo tres variantes de botón, tal como pide el mini reto 8. */
+@layer components {
+    .btn-primary {
+        @apply inline-flex items-center justify-center rounded-xl bg-verde-ruta px-6 py-3 font-bold text-white shadow-md transition hover:bg-azul-noche focus-visible:ring-4 focus-visible:ring-offset-4 focus-visible:ring-amarillo-farol;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center justify-center rounded-xl bg-naranja-pedal px-6 py-3 font-bold text-azul-noche shadow-md transition hover:bg-amarillo-farol focus-visible:ring-4 focus-visible:ring-offset-4 focus-visible:ring-azul-noche;
+    }
+
+    .btn-outline {
+        @apply inline-flex items-center justify-center rounded-xl border-2 border-verde-ruta px-6 py-3 font-bold text-verde-ruta transition hover:bg-verde-ruta hover:text-white focus-visible:ring-4 focus-visible:ring-offset-4 focus-visible:ring-amarillo-farol dark:border-crema dark:text-crema dark:hover:bg-crema dark:hover:text-azul-noche;
+    }
+}

@@ -17,6 +17,17 @@
   --espacio-lg: 1.5rem;
   --espacio-xl: 2rem;
   --espacio-xxl: 3rem;
+
+  /* Bootstrap usa estos tokens para mantener la misma marca que Tailwind. */
+  --bs-primary: var(--verde-ruta);
+  --bs-success: var(--verde-ruta);
+  --bs-secondary: var(--naranja-pedal);
+  --bs-warning: var(--naranja-pedal);
+  --bs-dark: var(--azul-noche);
+  --bs-light: var(--crema);
+  --bs-body-bg: var(--crema);
+  --bs-body-color: var(--azul-noche);
+  --bs-font-sans-serif: var(--fuente-texto);
 }
 
 /* 2. Base, herencia y modelo de caja */
@@ -48,6 +59,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { margin: 0; font-size: clamp(2rem, 4vw, 3rem); }
+/* Conserva la apariencia visual del antiguo h2 mientras aporta un h1 semántico a cada página. */
+h1.titulo-pagina { margin-top: 0; font-size: clamp(1.6rem, 3vw, 2.2rem); }
 h2 { margin-top: 0; font-size: clamp(1.6rem, 3vw, 2.2rem); }
 h3 { font-size: 1.35rem; }
 p { margin: 0 0 var(--espacio-md); }
@@ -177,7 +190,6 @@ gap: 40px;
   border: 1px solid var(--gris-asfalto);
   border-radius: 0.75rem;
   background-color: var(--crema);
-  box-shadow: 0 0.25rem 0.75rem var(--gris-asfalto);
 }
 
 /* 5b. Nuestra flota y Nuestras rutas: Grid para la cuadrícula, Flexbox dentro de cada tarjeta */
@@ -256,7 +268,6 @@ tbody tr:nth-child(even) { background-color: var(--crema); }
 
 /* 7. Formulario */
 form {
-  aspect-ratio: 2 / 1;
   width: min(100%, 42rem);
   margin: var(--espacio-xl) auto;
   padding: var(--espacio-xl);
@@ -290,7 +301,7 @@ form select:invalid:focus,
 form textarea:invalid:focus { border-color: var(--verde-ruta); }
 form button[type="submit"] { padding: var(--espacio-md) var(--espacio-xl); }
 
-.contacto_horario_reserva { aspect-ratio: 2 / 1; margin: 0 0 var(--espacio-xs); }
+.contacto_horario_reserva { margin: 0 0 var(--espacio-xs); }
 
 /* 8. Pie de página y WhatsApp fijo */
 footer {
@@ -367,4 +378,39 @@ main > section > img { margin-inline: auto; }
     nav {
         gap: 30px;
     }
+}
+
+
+/* 10. Complementos Bootstrap de la integración de la semana 3 */
+.brand-logo { width: 3rem; height: 3rem; object-fit: cover; border-radius: 50%; }
+.site-header .container-fluid { width: min(100%, 74rem); margin: 0 auto; }
+.site-header .navbar-brand { color: var(--crema); font-family: var(--fuente-titulos); font-weight: 700; }
+.site-header .navbar-brand:hover { color: var(--naranja-pedal); }
+.site-header .navbar-toggler { border-color: var(--crema); }
+.site-header .navbar-toggler:focus { box-shadow: 0 0 0 0.2rem var(--naranja-pedal); }
+#menu .nav-link { color: var(--crema); }
+#menu .nav-link.activo { color: var(--azul-noche); background-color: var(--naranja-pedal); }
+#menu .nav-link:hover { color: var(--azul-noche); background-color: var(--naranja-pedal); }
+#campanas .carousel-item img { width: 100%; height: clamp(15rem, 42vw, 25rem); object-fit: cover; }
+#campanas .carousel-caption { background: rgb(20 33 61 / 82%); border-radius: 0.75rem; padding: 1rem; }
+#campanas .carousel-caption h3,
+#campanas .carousel-caption p { color: var(--crema); }
+#campanas .carousel-control-prev,
+#campanas .carousel-control-next { background: transparent; }
+#campanas .btn-campana {
+  --bs-btn-color: var(--azul-noche);
+  --bs-btn-bg: var(--amarillo-farol);
+  --bs-btn-border-color: var(--amarillo-farol);
+  --bs-btn-hover-color: var(--azul-noche);
+  --bs-btn-hover-bg: var(--naranja-pedal);
+  --bs-btn-hover-border-color: var(--naranja-pedal);
+  --bs-btn-focus-shadow-rgb: 255, 209, 102;
+}
+.opciones-formulario { display: flex; flex-wrap: wrap; gap: var(--espacio-sm) var(--espacio-lg); margin: 0 0 var(--espacio-md); }
+.opciones-formulario label { display: inline-flex; align-items: center; gap: 0.5rem; margin: 0; }
+.form-label-text { margin: var(--espacio-md) 0 var(--espacio-xs); font-weight: 700; }
+.mensaje-formulario { margin-top: var(--espacio-md); padding: var(--espacio-md); border-left: 4px solid var(--verde-ruta); background: var(--crema); color: var(--azul-noche); }
+@media (max-width: 991.98px) {
+  .site-header .navbar-collapse { padding-top: var(--espacio-sm); }
+  #menu .nav-link { display: block; }
 }

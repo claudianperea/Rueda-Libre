@@ -1,0 +1,14 @@
+{
+  "name": "rueda-nocturna",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing de Rueda Nocturna con Tailwind CSS 4",
+  "scripts": {
+    "watch": "@tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
+    "build": "@tailwindcss/cli -i ./src/input.css -o ./src/output.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.1.10",
+    "tailwindcss": "4.1.10"
+  }
+}

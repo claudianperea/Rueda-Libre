@@ -1,44 +1,85 @@
 <!DOCTYPE html>
-<html lang='es'>
+<html lang="es">
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Rueda Libre | Alquiler de Bicicletas en Medellín</title>
-    <link rel='stylesheet' href='css/styles.css'>
-</head>  
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rueda Libre: alquiler de bicicletas y recorridos guiados en Medellín.">
+    <title>Rueda Libre | Alquiler de bicicletas en Medellín</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
 <body>
-    <header class="site-header">
-
-    <div>
-        <h1>Rueda Libre</h1>
+<header class="site-header navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+            <img class="brand-logo" src="imagenes/Rueda Libre_Emblem.jpg" alt="" width="48" height="48">
+            <span>Rueda Libre</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir o cerrar menú">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu-principal">
+            <nav class="ms-auto" aria-label="Navegación principal">
+                <ul id="menu" class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link activo" href="index.html" aria-current="page">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="paginas/tarifas.html">Tarifas y rutas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="paginas/reservas.html">Reservas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nocturna/index.html">Rueda Nocturna</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
-
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="paginas/tarifas.html">Tarifas y rutas</a></li>
-                <li><a href="paginas/reservas.html">Reservas</a></li>
-            </ul>
-        </nav>
-        
-    </header>
-<hr>
-
+</header>
     <main>
         <section class="portada">
             <div class="bienvenida">
-                <h2>Tu ciudad, tu ruta, tu libertad</h2>
+                <h1 class="titulo-pagina">Tu ciudad, tu ruta, tu libertad</h1>
 
                 <p>En Rueda Libre te ofrecemos una forma divertida, económica y ecológica de recorrer Medellín.</p>
                 <p>Alquila una bicicleta por horas o días y disfruta de la ciudad a tu propio ritmo, ya sea para pasear, hacer ejercicio o vivir una nueva aventura, tenemos una bicicleta para ti. <strong>¡Explora y disfruta Medellín con Rueda Libre!</strong></p>
             </div>
 
             <div class="imagen-portada">
-                <img src='./imagenes/Rueda Libre_Emblem.jpg' alt='portada' width="400">
+                <img src='./imagenes/Rueda Libre_Emblem.jpg' alt="Emblema de Rueda Libre en la portada" width="400">
             </div>
 
         </section>
+
+    <section id="campanas" aria-labelledby="campanas-titulo">
+        <h2 id="campanas-titulo">Descubre nuevas formas de rodar</h2>
+        <div id="ruedaLibreCarousel" class="carousel slide" data-bs-ride="carousel" aria-label="Novedades de Rueda Libre">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#ruedaLibreCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Diapositiva 1"></button>
+                <button type="button" data-bs-target="#ruedaLibreCarousel" data-bs-slide-to="1" aria-label="Diapositiva 2"></button>
+                <button type="button" data-bs-target="#ruedaLibreCarousel" data-bs-slide-to="2" aria-label="Diapositiva 3"></button>
+                <button type="button" data-bs-target="#ruedaLibreCarousel" data-bs-slide-to="3" aria-label="Diapositiva 4: Rueda Nocturna"></button>
+            </div>
+            <div class="carousel-inner rounded-4">
+                <div class="carousel-item active">
+                    <img src="imagenes/biclicletaportada.jpg" class="d-block w-100" alt="Bicicleta lista para recorrer Medellín">
+                    <div class="carousel-caption d-none d-md-block"><h3>Tu ciudad, tu ruta</h3><p>Muévete a tu propio ritmo.</p></div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagenes/flota-bicicleta.jpg" class="d-block w-100" alt="Bicicleta disponible para alquiler">
+                    <div class="carousel-caption d-none d-md-block"><h3>Encuentra tu bicicleta</h3><p>Tenemos modelos para diferentes recorridos.</p></div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagenes/ruta1.jpg" class="d-block w-100" alt="Recorrido en bicicleta por una ruta de Medellín">
+                    <div class="carousel-caption d-none d-md-block"><h3>Explora Medellín</h3><p>Conoce nuevas rutas y paisajes.</p></div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagenes/ruta3.jpg" class="d-block w-100" alt="Paisaje urbano de Medellín al anochecer">
+                    <div class="carousel-caption d-none d-md-block"><h3>Rueda Nocturna</h3><p>Jueves a sábado · 7:30 p. m.</p><a class="btn btn-campana fw-bold" href="nocturna/index.html">Conocer la campaña</a></div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#ruedaLibreCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Anterior</span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#ruedaLibreCarousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Siguiente</span></button>
+        </div>
+    </section>
+
 
     <section id="quienes-somos">
 
@@ -51,7 +92,7 @@
             Por eso, ofrecemos un servicio de alquiler de bicicletas pensado para quienes desean pasear, hacer ejercicio, compartir con amigos o familiares y recorrer Medellín a su propio ritmo.
             En Rueda Libre, nos apasiona promover la libertad de movimiento, el bienestar y el respeto por el medioambiente.</p>
 
-            <img src="./imagenes/imagen_slogan.png" alt="emblema" width="600">
+            <img src="./imagenes/imagen_slogan.png" alt="Imagen promocional de Rueda Libre" width="600">
 
         </article> 
     </section>
@@ -94,7 +135,7 @@
             </article>
 
             <article class="tarjeta-flota">
-                <img src="./imagenes/bicicletamontaña.jpg" alt="Bicicleta modelo Montaña Trail" width="640" height="427" loading="lazy">
+                <img src="./imagenes/bicicleta-montana.jpg" alt="Bicicleta modelo Montaña Trail" width="640" height="427" loading="lazy">
                 <h3>Montaña Trail</h3>
                 <p>Suspensión delantera y 21 cambios para las subidas.</p>
                 <p class="precio">$15.000 por hora</p>
@@ -160,7 +201,7 @@
 
     <section id="como-alquilar">
 
-    <h4>¿Cómo alquilar una bicicleta en Rueda Libre?</h4>
+    <h2>¿Cómo alquilar una bicicleta en Rueda Libre?</h2>
 
         <article class="pasos-alquiler">
             <p><strong>Alquilar una bicicleta en Rueda Libre es muy sencillo. Solo sigue estos pasos:</strong></p>
@@ -173,24 +214,25 @@
             <li><strong>Devuelve la bicicleta:</strong> <mark>Entrégala en el lugar y horario acordados.</mark></li>
             
         </ul>
-            <img src="./imagenes/como_alquilar.png" alt="emblema" width="700">
+            <img src="./imagenes/como_alquilar.png" alt="Pasos ilustrados para alquilar una bicicleta" width="700">
             <p>Con Rueda Libre, la aventura comienza pedaleando!</p>
         </article>
 
     </section>
 
     <section id="tarifas">
-        <h4>"¿cuanto cuesta?" pulsa aqui y conoce muestras tarifas de alquiler</h4>
-        <button class="boton-tarifas" onclick="window.location.href='paginas/tarifas.html'"> <strong> Ver Tarifas </strong> </button>
+        <h2>¿Cuánto cuesta alquilar una bicicleta?</h2>
+        <a class="boton-tarifas" href="paginas/tarifas.html">Ver tarifas</a>
+        <p><a href="paginas/tarifas.html#recorridos">Consultar recorridos guiados</a></p>
     </section>
 
     <section id="reservas">
             <h2>¿Listo para rodar?</h2>
-            <button onclick="window.location.href='paginas/reservas.html'" class="btn-reservar"><strong>Reservar ahora</strong></button>
+            <a href="paginas/reservas.html" class="btn-reservar">Reservar ahora</a>
         </section>
 
     <section id="beneficios-rueda-libre">
-        <h3>Conoce nuestros beneficios</h3>
+        <h2>Conoce nuestros beneficios</h2>
             <article class="beneficios">
             <ul>
                 <li>Nosotros cuidamos el planeta, Promovemos un transporte ecológico y sostenible.</li>
@@ -228,27 +270,26 @@
     </section>
 
     </main>
-    
-    <footer>
-        <div class="footer-bloque">
-            <h2>Rueda Libre</h2>
-            <p>Alquiler de bicicletas en Medellín.</p>
-            <p>&copy; 2026</p>
-        </div>
-        <div class="footer-bloque">
-            <h2>Contacto</h2>
-            <p><a href="mailto:comunicaciones@ruedalibre.com">comunicaciones@ruedalibre.com</a></p>
-            <p>WhatsApp: +57 345 123 4567</p>
-        </div>
-        <div class="footer-bloque">
-            <h2>Horario</h2>
-            <dl>
-                <dt>Lunes a viernes</dt>
-                <dd>7:00 a. m. a 7:00 p. m.</dd>
-                <dt>Sábados, domingos y festivos</dt>
-                <dd>6:00 a. m. a 2:00 p. m.</dd>
-            </dl>
-        </div>
-    </footer>
+<footer>
+    <div class="footer-bloque">
+        <h2>Rueda Libre</h2>
+        <p>Alquiler de bicicletas en Medellín.</p>
+        <p>&copy; 2026</p>
+    </div>
+    <div class="footer-bloque">
+        <h2>Contacto</h2>
+        <p><a href="mailto:comunicaciones@ruedalibre.com">comunicaciones@ruedalibre.com</a></p>
+        <p>WhatsApp: +57 345 123 4567</p>
+    </div>
+    <div class="footer-bloque">
+        <h2>Horario</h2>
+        <dl>
+            <dt>Lunes a viernes</dt><dd>7:00 a. m. a 7:00 p. m.</dd>
+            <dt>Sábados, domingos y festivos</dt><dd>6:00 a. m. a 2:00 p. m.</dd>
+        </dl>
+    </div>
+</footer>
+<a class="enlace-whatsapp" href="https://wa.me/573451234567" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Rueda Libre por WhatsApp">WhatsApp</a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

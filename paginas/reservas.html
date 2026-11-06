@@ -1,154 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta name="Viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservas - Rueda Libre</title>
-    <link rel="stylesheet" href='../css/styles.css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rueda Libre: alquiler de bicicletas y recorridos guiados en Medellín.">
+    <title>Reservas | Rueda Libre</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-
-    <header>
-
-        <h1>Rueda Libre | Reserva tu bicicleta</h1>
-
-        <nav>
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="tarifas.html">Tarifas y rutas</a></li>
-                <li><a href="reservas.html">Reservas</a></li>
-            </ul>
-        </nav>
-
-    </header>
-
-    <hr>
-
-    <main>
-        <h2>Formulario de reserva</h2>
-
-        <form action="#" method="post">
-
+<header class="site-header navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
+            <img class="brand-logo" src="../imagenes/Rueda Libre_Emblem.jpg" alt="" width="48" height="48">
+            <span>Rueda Libre</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir o cerrar menú">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu-principal">
+            <nav class="ms-auto" aria-label="Navegación principal">
+                <ul id="menu" class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../paginas/tarifas.html">Tarifas y rutas</a></li>
+                    <li class="nav-item"><a class="nav-link activo" href="../paginas/reservas.html" aria-current="page">Reservas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../nocturna/index.html">Rueda Nocturna</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<main>
+    <section aria-labelledby="formulario-titulo">
+        <h1 class="titulo-pagina" id="formulario-titulo">Reserva tu bicicleta</h1>
+        <p>Completa tus datos y selecciona las características de tu alquiler.</p>
+        <form id="form-reserva" action="" method="post">
             <fieldset id="datos-personales">
                 <legend>Tus datos</legend>
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" minlength="3" autocomplete="name" required>
 
-                <label for="nombre">Nombre completo:</label>
-                <input type="text" id="nombre" name="nombre" required minlength="3" title="Por favor escribe tu nombre" required>
+                <label for="documento">Número de documento</label>
+                <input type="text" id="documento" name="documento" inputmode="numeric" pattern="[0-9]{6,10}" title="Escribe entre 6 y 10 números, sin espacios." required>
 
-                <label for="documento">N° Documento:</label>
-                <input type="text" id="documento" name="documento" required
-                    inputmode="numeric" pattern="[0-9]{6,10}"
-                    title="Escribe de 6 a 10 números, sin espacios">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" autocomplete="email" required>
 
-                <label for="correo">Correo electrónico:</label>
-                <input type="email" id="correo" name="correo" required>
-
-                <label for="telefono">Celular:</label>
-                <input type="tel" id="telefono" name="telefono" min="" pattern="3[0-9]*" title="El número debe comenzar por 3" required>
-
+                <label for="telefono">Celular</label>
+                <input type="tel" id="telefono" name="telefono" inputmode="numeric" pattern="3[0-9]{9}" title="Escribe 10 dígitos y comienza por 3. Ejemplo: 3001234567." autocomplete="tel" required>
             </fieldset>
 
             <fieldset id="alquiler">
                 <legend>Tu alquiler</legend>
-
-                <label for="Bicicleta">Tipo de Bicicleta:</label>
-                <select id="Bicicleta" name="Bicicleta" required>
-                    <option value="">Seleccionar Bicicleta</option>
-                    <option value="Urbana">Urbana</option>
-                    <option value="montaña">Montaña</option>
+                <label for="bicicleta">Tipo de bicicleta</label>
+                <select id="bicicleta" name="bicicleta" required>
+                    <option value="">Selecciona una bicicleta</option>
+                    <option value="urbana">Urbana</option>
+                    <option value="montana">Montaña</option>
                     <option value="electrica">Eléctrica</option>
                 </select>
 
-                <label for="cantidad-biciletas">Cantidad de bicicletas:</label>
-                <select id="Bicicleta" name="Bicicleta" required>
-                    <option value="">¿Cuantas bicicletas?</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                </select>
+                <label for="cantidad-bicicletas">Cantidad de bicicletas</label>
+                <input type="number" id="cantidad-bicicletas" name="cantidad_bicicletas" min="1" max="6" step="1" required>
 
-
-                <label for="fecha">Fecha de recogida:</label>
+                <label for="fecha">Fecha del alquiler</label>
                 <input type="date" id="fecha" name="fecha" min="2026-11-01" max="2026-12-31" required>
 
-            <p>¿Que plan quieres?:</p>
+                <p class="form-label-text">Plan de alquiler</p>
+                <div class="opciones-formulario">
+                    <label><input type="radio" name="plan" value="1-hora" required> 1 hora</label>
+                    <label><input type="radio" name="plan" value="medio-dia"> Medio día (4 horas)</label>
+                    <label><input type="radio" name="plan" value="dia-completo"> Día completo</label>
+                </div>
 
-                <input type="radio" id="horas" name="plan" value="horas" required>
-                <label for="horas">Horas</label>
-
-                <input type="radio" id="dias" name="plan" value="dias">
-                <label for="dias">Dias</label>
-
-                <input type="radio" id="" name="plan" value="1-dia">
-                <label for="un-dia">Semanas</label>
-
-                <label for="duracion">¿Por cuántas horas, días o semanas deseas alquilar?</label>
-                <input type="number" id="duracion" name="duracion" min="1" max="30" required>
-
+                <label for="recorrido">Recorrido guiado (opcional)</label>
+                <select id="recorrido" name="recorrido">
+                    <option value="ninguno">Ninguno</option>
+                    <option value="rio-parques">Río y Parques</option>
+                    <option value="sabores-barrio">Sabores de Barrio</option>
+                    <option value="reto-palmas">Reto Las Palmas</option>
+                </select>
             </fieldset>
 
             <fieldset id="confirmacion">
                 <legend>Confirmación</legend>
-
-                <label for="comentarios">Comentarios adicionales:</label>
-                <textarea id="comentarios" name="comentarios" rows="4" maxlength="300" title="Maximo 300 Caracteres"></textarea>
-
-                <input type="checkbox" id="acepto" name="acepto" value="si" required>
-                <label for="acepto">Acepto las condiciones de la reserva</label>
+                <label for="comentarios">Comentarios adicionales</label>
+                <textarea id="comentarios" name="comentarios" rows="4" maxlength="300" title="Máximo 300 caracteres."></textarea>
+                <div class="opciones-formulario">
+                    <label><input type="checkbox" id="acepto" name="acepto_politicas" value="si" required> Acepto las políticas de alquiler</label>
+                </div>
             </fieldset>
-
-        <button type="submit">Enviar reserva</button>
-
-    </form>
-
-</section>
-
-    <section class="contacto_horario_reserva">
-        <h2>Contacto para Reservas</h2>
-        <p>Si tienes alguna pregunta o necesitas más información sobre nuestras reservas, no dudes en contactarnos.</p>
-        <p>Escríbenos a nuestro correo electrónico: <a href="mailto:reservas@ruedalibre.com">reservas@ruedalibre.com</a></p>
-        <p>O llámanos al: <a href="tel:+573451234567">+57 345 123 4567</a></p>
-        <aside>
-
-            <h3>Horario de atención</h3>
-
-            <dl>
-                <dt>Lunes a viernes</dt>
-                <dd>7:00 a. m. a 7:00 p. m.</dd>
-                
-                <dt>Sábados, domingos y festivos</dt>
-                <dd>6:00 a. m. a 2:00 p. m.</dd>
-            </dl>
-
-        </aside>
-
+            <button type="submit">Enviar reserva</button>
+            <p id="mensaje-reserva" class="mensaje-formulario" role="status" aria-live="polite" hidden></p>
+        </form>
     </section>
-    </main>
 
-    <footer>
-        <div class="footer-bloque">
-            <h2>Rueda Libre</h2>
-            <p>Alquiler de bicicletas en Medellín.</p>
-            <p>&copy; 2026</p>
-        </div>
-        <div class="footer-bloque">
-            <h2>Contacto</h2>
-            <p><a href="mailto:comunicaciones@ruedalibre.com">comunicaciones@ruedalibre.com</a></p>
-            <p>WhatsApp: +57 345 123 4567</p>
-        </div>
-        <div class="footer-bloque">
-            <h2>Horario</h2>
-            <dl>
-                <dt>Lunes a viernes</dt>
-                <dd>7:00 a. m. a 7:00 p. m.</dd>
-                <dt>Sábados, domingos y festivos</dt>
-                <dd>6:00 a. m. a 2:00 p. m.</dd>
-            </dl>
-        </div>
-    </footer>
-
+    <section class="contacto_horario_reserva" aria-labelledby="contacto-reserva-titulo">
+        <h2 id="contacto-reserva-titulo">Contacto para reservas</h2>
+        <p>Si tienes alguna pregunta o necesitas más información, puedes escribirnos o llamarnos.</p>
+        <p>Correo: <a href="mailto:reservas@ruedalibre.com">reservas@ruedalibre.com</a></p>
+        <p>Teléfono: <a href="tel:+573451234567">+57 345 123 4567</a></p>
+        <aside aria-labelledby="horario-titulo">
+            <h3 id="horario-titulo">Horario de atención</h3>
+            <dl><dt>Lunes a viernes</dt><dd>7:00 a. m. a 7:00 p. m.</dd><dt>Sábados, domingos y festivos</dt><dd>6:00 a. m. a 2:00 p. m.</dd></dl>
+        </aside>
+    </section>
+</main>
+<script src="../js/reserva-demo.js" defer></script>
+<footer>
+    <div class="footer-bloque">
+        <h2>Rueda Libre</h2>
+        <p>Alquiler de bicicletas en Medellín.</p>
+        <p>&copy; 2026</p>
+    </div>
+    <div class="footer-bloque">
+        <h2>Contacto</h2>
+        <p><a href="mailto:comunicaciones@ruedalibre.com">comunicaciones@ruedalibre.com</a></p>
+        <p>WhatsApp: +57 345 123 4567</p>
+    </div>
+    <div class="footer-bloque">
+        <h2>Horario</h2>
+        <dl>
+            <dt>Lunes a viernes</dt><dd>7:00 a. m. a 7:00 p. m.</dd>
+            <dt>Sábados, domingos y festivos</dt><dd>6:00 a. m. a 2:00 p. m.</dd>
+        </dl>
+    </div>
+</footer>
+<a class="enlace-whatsapp" href="https://wa.me/573451234567" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Rueda Libre por WhatsApp">WhatsApp</a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
