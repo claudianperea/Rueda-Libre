@@ -1,7 +1,7 @@
 # BITÁCORA DEL PROYECTO: RUEDA LIBRE
 
 > Sitio web de alquiler de bicicletas en Medellín y campaña complementaria Rueda Nocturna.
->
+
 > Este documento registra el proceso de construcción, las decisiones técnicas, los problemas encontrados y los aprendizajes. Los datos que dependen de una prueba manual (tiempos, tamaños descargados, resultados de contraste y pruebas en dispositivos) se dejan pendientes hasta medirlos; no se deben completar con valores inventados.
 
 ---
@@ -38,9 +38,9 @@ En la tercera semana se amplía el proyecto con **Rueda Nocturna**, una campaña
 | Bootstrap | Facilita la construcción de interfaces mediante componentes y clases prediseñadas. | Página de pruebas `catalogo-bootstrap.html`, con la cuadrícula de tarjetas de bicicletas. |
 | Tailwind CSS | Permite construir la interfaz mediante clases de utilidad directamente en el HTML. | Prototipo inicial de la campaña `Rueda Nocturna` en `nocturna/prototipo.html`. |
 
-## 4. Estructura del proyecto revisada
+## 4. Estructura del proyecto
 
-La carpeta comprimida contiene, entre otros, estos archivos:
+La carpeta contiene, entre otros, estos archivos:
 
 ```text
 Rueda-Libre/
@@ -56,6 +56,8 @@ Rueda-Libre/
 │   ├── tarifas.html
 │   └── reservas.html
 ├── nocturna/
+|   ├──node_modules
+|   ├──src
 │   └── prototipo.html
 └── pruebas/
     ├── catalogo-bootstrap.html
@@ -97,8 +99,6 @@ Durante esta semana se construyó la base de Rueda Libre. Se pasó de una págin
 | Estado de la ruta inexistente | `404 – File not found` |
 
 **Aprendizaje:** el navegador realiza una petición al servidor para solicitar el documento. Cuando el recurso existe, el servidor puede responder con estado 200; cuando no existe, puede responder con 404.
-
-**Nota:** estos valores se conservan del registro anterior de la bitácora. Si cambia el puerto de Live Server, se debe actualizar la URL con el valor que muestre DevTools.
 
 #### MiniReto 2. La vitrina de Rueda Libre
 
@@ -196,8 +196,6 @@ Durante esta semana se construyó la base de Rueda Libre. Se pasó de una págin
 | Gris Asfalto | `#5B6470` | Texto secundario |
 
 **Aprendizaje:** no basta con que una combinación de colores se vea bien; se debe comprobar el contraste. Las imágenes informativas necesitan textos alternativos descriptivos y las decorativas pueden utilizar `alt=""`.
-
-**Dato pendiente:** agregar la URL pública verificada de GitHub Pages y los resultados exactos de las pruebas de contraste. No se registran valores de contraste sin ejecutar el verificador.
 
 ### Día 3 — Identidad visual y CSS
 
@@ -337,18 +335,11 @@ En esta semana se trabajó la distribución del contenido con Flexbox y Grid, la
 - `col-xl-3` para cuatro columnas desde `xl`.
 - `g-4` para separar las columnas y filas.
 
-**Diferencias encontradas frente al enunciado:**
-1. El ejercicio solicita siete modelos, pero el archivo revisado contiene ocho tarjetas.
-2. El título dice “Nuestra flota de vehículos”; conviene mantener “bicicletas” para que coincida con el proyecto.
-3. La hoja de Bootstrap está enlazada en versión 5.3.0 y el bundle de JavaScript en 5.3.3. Se recomienda utilizar la misma versión en ambos recursos.
-4. El ZIP original ubicaba el catálogo en `pruebas-bootstrap/`; en esta copia se movió a `pruebas/`, como indica el enunciado.
-5. El archivo `catalogo.css` contiene estilos del pie de página. No se observa allí una regla propia para distribuir la cuadrícula; la distribución de las tarjetas se realiza con clases de Bootstrap.
-
 **Datos que faltan en la comparación:**
 
 | Dato solicitado | Registro |
 |---|---|
-| Tiempo invertido en reconstruir la flota | [COMPLETAR con el tiempo real] |
+| Tiempo invertido en reconstruir la flota | [No recuerdo cuanto tipo me tomo jeje] |
 | Líneas de CSS de distribución en la versión propia | [MEDIR en `css/styles.css`] |
 | Clases de Bootstrap usadas para distribuir la flota | `row`, `g-4`, `col-12`, `col-sm-6`, `col-lg-4`, `col-xl-3` |
 | Qué facilitó Bootstrap | La cuadrícula responsive mediante clases prediseñadas. |
@@ -388,21 +379,13 @@ La tercera semana amplía el sitio con una landing para la campaña **Rueda Noct
 - `nocturna/src/output.css`: CSS generado para que la landing pueda servirse como archivo estático.
 - `nocturna/index.html`: incorpora el hero del prototipo y la campaña completa.
 
-**Comandos preparados para ejecutar desde `nocturna/`:**
+**Comandos utilizados para ejecutar desde `nocturna/`:**
 
 ```bash
-npm install
-npm run watch
+npm install -D tailwindcss@3 postcss autoprefixer
+npx tailwindcss init -p
+npm run dev
 ```
-
-Para generar el archivo optimizado para publicación:
-
-```bash
-npm run build
-```
-
-El script `build` usa la opción `--minify`. La instalación de dependencias con `npm install` agotó el tiempo disponible en este entorno y no creó `node_modules/`; por eso no se afirma que `npm run build` se haya ejecutado por medio de la CLI. El CSS `output.css` sí se generó usando el compilador Tailwind 4.1.10 disponible en el entorno y se minificó. En el equipo local se debe ejecutar `npm install` y `npm run build` para repetir la compilación con la CLI oficial.
-
 **Botones implementados:** `btn-primary`, `btn-secondary` y `btn-outline`. Los tres incluyen estilos `hover:` y foco visible con utilidades `focus-visible:ring-*`. El CSS fuente tiene exactamente tres reglas con `@apply`, dentro de `@layer components`.
 
 **Comprobación de generación:** se encontraron utilidades utilizadas en `src/output.css`, por ejemplo `bg-azul-noche` y `grid-cols-1`. La clase de prueba `bg-pink-500`, que no se utiliza en las páginas de la campaña, no se genera. El archivo no incluye `node_modules`.
