@@ -398,7 +398,7 @@ main > section > img { margin-inline: auto; }
 #campanas .carousel-control-prev,
 #campanas .carousel-control-next { background: transparent; }
 #campanas .btn-campana {
-  --bs-btn-color: var(--azul-noche);
+  --bs-btn-color: var(--naranja-pedal);
   --bs-btn-bg: var(--amarillo-farol);
   --bs-btn-border-color: var(--amarillo-farol);
   --bs-btn-hover-color: var(--azul-noche);

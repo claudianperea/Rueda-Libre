@@ -16,3 +16,19 @@
         @apply inline-flex items-center justify-center rounded-xl border-2 border-verde-ruta px-6 py-3 font-bold text-verde-ruta transition hover:bg-verde-ruta hover:text-white focus-visible:ring-4 focus-visible:ring-offset-4 focus-visible:ring-amarillo-farol dark:border-crema dark:text-crema dark:hover:bg-crema dark:hover:text-azul-noche;
     }
 }
+
+@theme{
+    extend: {
+      colors: {        
+        "verde-ruta": "#1E7A4F",
+        "naranja-pedal": "#F39A2B",
+        "azul-noche": "#14213D",
+        "crema": "#FAF6EF",
+        "gris-asfalto": "#5B6470",
+        "amarillo-farol": "#FFD166",}
+    }
+    fontFamily: {
+       montserrat: ["Montserrat", "Arial", "sans-serif"],
+       "open-sans": ["Open Sans", "Arial", "sans-serif"],
+    }
+}
