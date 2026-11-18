@@ -627,8 +627,6 @@ git commit -m "feat: completa campaña Rueda Nocturna con Tailwind"
 git push origin main
 ```
 
-No incluyas `nocturna/node_modules/`. Sí incluye `nocturna/src/output.css`, porque GitHub Pages sirve archivos estáticos y no ejecuta la CLI.
-
 ## 10. Estado global después de la revisión
 
 | Parte | Estado de implementación | Verificación pendiente |
@@ -639,5 +637,3 @@ No incluyas `nocturna/node_modules/`. Sí incluye `nocturna/src/output.css`, por
 | Semana 3, día 1 | Prototipo, CLI preparada, botones, cards y kit de componentes creados. | Instalar CLI localmente y probar teclado/publicación. |
 | Semana 3, día 2 | Landing, responsive por clases, tema, modo oscuro y comparación preliminar creados. | Probar resoluciones/contraste y medir recursos Bootstrap en Network. |
 | Semana 3, día 3 | Formulario, integración, planes y README creados. | Ejecutar pruebas, validador W3C, publicación y demo. |
-
-**Conclusión:** el código correspondiente a los 12 mini retos de la semana 3 ya está preparado en el proyecto. La entrega no debe considerarse totalmente publicada ni validada hasta completar las comprobaciones manuales, instalar la CLI en el equipo local, medir los recursos, pasar el validador W3C y publicar en GitHub Pages.
