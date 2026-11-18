@@ -80,18 +80,6 @@ Agregar aquí capturas reales después de abrir el sitio:
 - `capturas/rueda-nocturna-movil.png`
 - `capturas/rueda-nocturna-modo-oscuro.png`
 
-## Lista de entrega pendiente
-
-- [ ] Ejecutar `npm install` y `npm run build` dentro de `nocturna/`.
-- [ ] Revisar responsive a 360, 768, 1024 y 1280 px.
-- [ ] Probar modo claro/oscuro y navegación con teclado.
-- [ ] Probar formulario vacío, inválido y completo.
-- [ ] Medir CSS y JavaScript de Bootstrap en DevTools → Network.
-- [ ] Validar HTML con Nu (W3C) y corregir cualquier error reportado.
-- [ ] Agregar capturas reales.
-- [ ] Habilitar GitHub Pages y verificar todas las rutas publicadas.
-- [ ] Registrar tiempos reales de los mini retos contrarreloj y practicar la demo de tres minutos.
-
 ## Bitácora
 
 Consulta [`bitacora.txt`](bitacora.txt) para el detalle de los mini retos, decisiones, correcciones y pruebas pendientes.
